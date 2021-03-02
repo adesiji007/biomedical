@@ -99,7 +99,7 @@ namespace WindowsFormsApplication1
             sConnStr = "Server = " + Server + "; " + "database = " + DB + "; " + "uid = " + UName + ";";
             myConn = new MySqlConnection(sConnStr);
 
-           // DisplayTable("Select * fROM dynamic_movement");
+           // DisplayTable("Select * fROM bio_dynamic_movement");
 
         }
     }

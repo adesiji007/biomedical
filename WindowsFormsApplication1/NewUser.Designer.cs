@@ -35,13 +35,11 @@
             this.txtRegistrationDate = new System.Windows.Forms.TextBox();
             this.txtRegistrationNo = new System.Windows.Forms.TextBox();
             this.txtEmail = new System.Windows.Forms.TextBox();
-            this.txtLname = new System.Windows.Forms.TextBox();
             this.lblRegDate = new System.Windows.Forms.Label();
             this.lblEmail = new System.Windows.Forms.Label();
             this.lblRegNo = new System.Windows.Forms.Label();
-            this.lblSurname = new System.Windows.Forms.Label();
             this.lblFirstname = new System.Windows.Forms.Label();
-            this.txtFirstname = new System.Windows.Forms.TextBox();
+            this.txtFullname = new System.Windows.Forms.TextBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.cboType = new System.Windows.Forms.ComboBox();
             this.lblClientType = new System.Windows.Forms.Label();
@@ -49,8 +47,11 @@
             this.button2 = new System.Windows.Forms.Button();
             this.btnExit = new System.Windows.Forms.Button();
             this.btnRegister = new System.Windows.Forms.Button();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.label1 = new System.Windows.Forms.Label();
             this.grpClientDetail.SuspendLayout();
             this.groupBox1.SuspendLayout();
+            this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // grpClientDetail
@@ -60,17 +61,15 @@
             this.grpClientDetail.Controls.Add(this.txtRegistrationDate);
             this.grpClientDetail.Controls.Add(this.txtRegistrationNo);
             this.grpClientDetail.Controls.Add(this.txtEmail);
-            this.grpClientDetail.Controls.Add(this.txtLname);
             this.grpClientDetail.Controls.Add(this.lblRegDate);
             this.grpClientDetail.Controls.Add(this.lblEmail);
             this.grpClientDetail.Controls.Add(this.lblRegNo);
-            this.grpClientDetail.Controls.Add(this.lblSurname);
             this.grpClientDetail.Controls.Add(this.lblFirstname);
-            this.grpClientDetail.Controls.Add(this.txtFirstname);
+            this.grpClientDetail.Controls.Add(this.txtFullname);
             this.grpClientDetail.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.grpClientDetail.Location = new System.Drawing.Point(176, 118);
+            this.grpClientDetail.Location = new System.Drawing.Point(176, 206);
             this.grpClientDetail.Name = "grpClientDetail";
-            this.grpClientDetail.Size = new System.Drawing.Size(394, 280);
+            this.grpClientDetail.Size = new System.Drawing.Size(394, 277);
             this.grpClientDetail.TabIndex = 34;
             this.grpClientDetail.TabStop = false;
             this.grpClientDetail.Text = "NewClientDetail";
@@ -78,7 +77,7 @@
             // lblPassword
             // 
             this.lblPassword.AutoSize = true;
-            this.lblPassword.Location = new System.Drawing.Point(16, 246);
+            this.lblPassword.Location = new System.Drawing.Point(6, 246);
             this.lblPassword.Name = "lblPassword";
             this.lblPassword.Size = new System.Drawing.Size(64, 15);
             this.lblPassword.TabIndex = 43;
@@ -117,14 +116,6 @@
             this.txtEmail.Size = new System.Drawing.Size(226, 20);
             this.txtEmail.TabIndex = 38;
             // 
-            // txtLname
-            // 
-            this.txtLname.Location = new System.Drawing.Point(125, 47);
-            this.txtLname.Multiline = true;
-            this.txtLname.Name = "txtLname";
-            this.txtLname.Size = new System.Drawing.Size(226, 20);
-            this.txtLname.TabIndex = 35;
-            // 
             // lblRegDate
             // 
             this.lblRegDate.AutoSize = true;
@@ -152,31 +143,22 @@
             this.lblRegNo.TabIndex = 32;
             this.lblRegNo.Text = "Registration No:";
             // 
-            // lblSurname
-            // 
-            this.lblSurname.AutoSize = true;
-            this.lblSurname.Location = new System.Drawing.Point(9, 54);
-            this.lblSurname.Name = "lblSurname";
-            this.lblSurname.Size = new System.Drawing.Size(65, 15);
-            this.lblSurname.TabIndex = 29;
-            this.lblSurname.Text = "Lastname:";
-            // 
             // lblFirstname
             // 
             this.lblFirstname.AutoSize = true;
-            this.lblFirstname.Location = new System.Drawing.Point(9, 19);
+            this.lblFirstname.Location = new System.Drawing.Point(9, 42);
             this.lblFirstname.Name = "lblFirstname";
-            this.lblFirstname.Size = new System.Drawing.Size(67, 15);
+            this.lblFirstname.Size = new System.Drawing.Size(59, 15);
             this.lblFirstname.TabIndex = 28;
-            this.lblFirstname.Text = "First Name";
+            this.lblFirstname.Text = "Fullname";
             // 
-            // txtFirstname
+            // txtFullname
             // 
-            this.txtFirstname.Location = new System.Drawing.Point(124, 9);
-            this.txtFirstname.Multiline = true;
-            this.txtFirstname.Name = "txtFirstname";
-            this.txtFirstname.Size = new System.Drawing.Size(226, 20);
-            this.txtFirstname.TabIndex = 27;
+            this.txtFullname.Location = new System.Drawing.Point(124, 39);
+            this.txtFullname.Multiline = true;
+            this.txtFullname.Name = "txtFullname";
+            this.txtFullname.Size = new System.Drawing.Size(226, 20);
+            this.txtFullname.TabIndex = 27;
             // 
             // groupBox1
             // 
@@ -184,7 +166,7 @@
             this.groupBox1.Controls.Add(this.lblClientType);
             this.groupBox1.Controls.Add(this.lblEmployeeType);
             this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox1.Location = new System.Drawing.Point(176, 12);
+            this.groupBox1.Location = new System.Drawing.Point(176, 86);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(394, 100);
             this.groupBox1.TabIndex = 33;
@@ -231,7 +213,7 @@
             // button2
             // 
             this.button2.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button2.BackgroundImage")));
-            this.button2.Location = new System.Drawing.Point(12, 12);
+            this.button2.Location = new System.Drawing.Point(12, 95);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(149, 158);
             this.button2.TabIndex = 32;
@@ -239,23 +221,44 @@
             // 
             // btnExit
             // 
-            this.btnExit.Location = new System.Drawing.Point(195, 420);
+            this.btnExit.BackColor = System.Drawing.Color.Cyan;
+            this.btnExit.Location = new System.Drawing.Point(195, 489);
             this.btnExit.Name = "btnExit";
             this.btnExit.Size = new System.Drawing.Size(75, 38);
             this.btnExit.TabIndex = 31;
             this.btnExit.Text = "Exit";
-            this.btnExit.UseVisualStyleBackColor = true;
+            this.btnExit.UseVisualStyleBackColor = false;
             this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
             // 
             // btnRegister
             // 
-            this.btnRegister.Location = new System.Drawing.Point(439, 420);
+            this.btnRegister.BackColor = System.Drawing.Color.Cyan;
+            this.btnRegister.Location = new System.Drawing.Point(439, 489);
             this.btnRegister.Name = "btnRegister";
             this.btnRegister.Size = new System.Drawing.Size(131, 38);
             this.btnRegister.TabIndex = 30;
             this.btnRegister.Text = "Register";
-            this.btnRegister.UseVisualStyleBackColor = true;
+            this.btnRegister.UseVisualStyleBackColor = false;
             this.btnRegister.Click += new System.EventHandler(this.btnRegister_Click);
+            // 
+            // panel1
+            // 
+            this.panel1.BackColor = System.Drawing.Color.SlateBlue;
+            this.panel1.Controls.Add(this.label1);
+            this.panel1.Location = new System.Drawing.Point(3, 12);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(585, 52);
+            this.panel1.TabIndex = 35;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(159, 9);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(229, 29);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "Client Registration";
             // 
             // NewUser
             // 
@@ -263,6 +266,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.ClientSize = new System.Drawing.Size(589, 539);
+            this.Controls.Add(this.panel1);
             this.Controls.Add(this.grpClientDetail);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.button2);
@@ -276,6 +280,8 @@
             this.grpClientDetail.PerformLayout();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -288,13 +294,11 @@
         private System.Windows.Forms.TextBox txtRegistrationDate;
         private System.Windows.Forms.TextBox txtRegistrationNo;
         private System.Windows.Forms.TextBox txtEmail;
-        private System.Windows.Forms.TextBox txtLname;
         private System.Windows.Forms.Label lblRegDate;
         private System.Windows.Forms.Label lblEmail;
         private System.Windows.Forms.Label lblRegNo;
-        private System.Windows.Forms.Label lblSurname;
         private System.Windows.Forms.Label lblFirstname;
-        private System.Windows.Forms.TextBox txtFirstname;
+        private System.Windows.Forms.TextBox txtFullname;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.ComboBox cboType;
         private System.Windows.Forms.Label lblClientType;
@@ -302,5 +306,7 @@
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button btnExit;
         private System.Windows.Forms.Button btnRegister;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Label label1;
     }
 }

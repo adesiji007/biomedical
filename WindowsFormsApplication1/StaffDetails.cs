@@ -42,7 +42,8 @@ namespace WindowsFormsApplication1
             sConnStr = "Server = " + Server + "; " + "database = " + DB + "; " + "uid = " + UName + ";";
             myConn = new MySqlConnection(sConnStr);
 
-            DisplayTable("Select * fROM  clientdetail");
+            DisplayTable("Select * fROM  bio_clientdetail");
+            
         }
         private void DisplayTable(string sQuery)
         {
@@ -67,7 +68,6 @@ namespace WindowsFormsApplication1
                 MessageBox.Show("not connected");
             }
         }
-
         
         private void btnExit_Click(object sender, EventArgs e)
         {

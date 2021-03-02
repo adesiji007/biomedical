@@ -30,6 +30,8 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Help));
             this.panel1 = new System.Windows.Forms.Panel();
+            this.btnLogin = new System.Windows.Forms.Button();
+            this.btnDashboard = new System.Windows.Forms.Button();
             this.button14 = new System.Windows.Forms.Button();
             this.button13 = new System.Windows.Forms.Button();
             this.button12 = new System.Windows.Forms.Button();
@@ -43,8 +45,6 @@
             this.button3 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.axShockwaveFlash1 = new AxShockwaveFlashObjects.AxShockwaveFlash();
-            this.btnDashboard = new System.Windows.Forms.Button();
-            this.btnLogin = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.axShockwaveFlash1)).BeginInit();
             this.SuspendLayout();
@@ -70,124 +70,158 @@
             this.panel1.Size = new System.Drawing.Size(202, 471);
             this.panel1.TabIndex = 3;
             // 
+            // btnLogin
+            // 
+            this.btnLogin.BackColor = System.Drawing.Color.Cyan;
+            this.btnLogin.Location = new System.Drawing.Point(21, 3);
+            this.btnLogin.Name = "btnLogin";
+            this.btnLogin.Size = new System.Drawing.Size(164, 23);
+            this.btnLogin.TabIndex = 5;
+            this.btnLogin.Text = "Login";
+            this.btnLogin.UseVisualStyleBackColor = false;
+            this.btnLogin.Click += new System.EventHandler(this.btnLogin_Click);
+            // 
+            // btnDashboard
+            // 
+            this.btnDashboard.BackColor = System.Drawing.Color.Cyan;
+            this.btnDashboard.Location = new System.Drawing.Point(44, 402);
+            this.btnDashboard.Name = "btnDashboard";
+            this.btnDashboard.Size = new System.Drawing.Size(121, 33);
+            this.btnDashboard.TabIndex = 14;
+            this.btnDashboard.Text = "To Dashboard";
+            this.btnDashboard.UseVisualStyleBackColor = false;
+            this.btnDashboard.Click += new System.EventHandler(this.btnDashboard_Click);
+            // 
             // button14
             // 
+            this.button14.BackColor = System.Drawing.Color.Cyan;
             this.button14.Location = new System.Drawing.Point(21, 320);
             this.button14.Name = "button14";
             this.button14.Size = new System.Drawing.Size(164, 23);
             this.button14.TabIndex = 13;
             this.button14.Text = "Video Clips";
-            this.button14.UseVisualStyleBackColor = true;
+            this.button14.UseVisualStyleBackColor = false;
             this.button14.Click += new System.EventHandler(this.button14_Click);
             // 
             // button13
             // 
+            this.button13.BackColor = System.Drawing.Color.Cyan;
             this.button13.Location = new System.Drawing.Point(21, 290);
             this.button13.Name = "button13";
             this.button13.Size = new System.Drawing.Size(164, 23);
             this.button13.TabIndex = 12;
             this.button13.Text = "Static Postural Assessment";
-            this.button13.UseVisualStyleBackColor = true;
+            this.button13.UseVisualStyleBackColor = false;
             this.button13.Click += new System.EventHandler(this.button13_Click);
             // 
             // button12
             // 
+            this.button12.BackColor = System.Drawing.Color.Cyan;
             this.button12.Location = new System.Drawing.Point(21, 260);
             this.button12.Name = "button12";
             this.button12.Size = new System.Drawing.Size(164, 23);
             this.button12.TabIndex = 11;
             this.button12.Text = "Training Week";
-            this.button12.UseVisualStyleBackColor = true;
+            this.button12.UseVisualStyleBackColor = false;
             this.button12.Click += new System.EventHandler(this.button12_Click);
             // 
             // button10
             // 
+            this.button10.BackColor = System.Drawing.Color.Cyan;
             this.button10.Location = new System.Drawing.Point(21, 230);
             this.button10.Name = "button10";
             this.button10.Size = new System.Drawing.Size(164, 23);
             this.button10.TabIndex = 9;
             this.button10.Text = "Training Information";
-            this.button10.UseVisualStyleBackColor = true;
+            this.button10.UseVisualStyleBackColor = false;
             this.button10.Click += new System.EventHandler(this.button10_Click);
             // 
             // button9
             // 
+            this.button9.BackColor = System.Drawing.Color.Cyan;
             this.button9.Location = new System.Drawing.Point(21, 349);
             this.button9.Name = "button9";
             this.button9.Size = new System.Drawing.Size(164, 23);
             this.button9.TabIndex = 8;
             this.button9.Text = "Refered Form";
-            this.button9.UseVisualStyleBackColor = true;
+            this.button9.UseVisualStyleBackColor = false;
             this.button9.Click += new System.EventHandler(this.button9_Click);
             // 
             // button8
             // 
+            this.button8.BackColor = System.Drawing.Color.Cyan;
             this.button8.Location = new System.Drawing.Point(21, 90);
             this.button8.Name = "button8";
             this.button8.Size = new System.Drawing.Size(164, 23);
             this.button8.TabIndex = 7;
             this.button8.Text = "New Users";
-            this.button8.UseVisualStyleBackColor = true;
+            this.button8.UseVisualStyleBackColor = false;
             this.button8.Click += new System.EventHandler(this.button8_Click);
             // 
             // button7
             // 
+            this.button7.BackColor = System.Drawing.Color.Cyan;
             this.button7.Location = new System.Drawing.Point(21, 61);
             this.button7.Name = "button7";
             this.button7.Size = new System.Drawing.Size(164, 23);
             this.button7.TabIndex = 6;
             this.button7.Text = "Forget Password";
-            this.button7.UseVisualStyleBackColor = true;
+            this.button7.UseVisualStyleBackColor = false;
             this.button7.Click += new System.EventHandler(this.button7_Click);
             // 
             // button6
             // 
+            this.button6.BackColor = System.Drawing.Color.Cyan;
             this.button6.Location = new System.Drawing.Point(21, 201);
             this.button6.Name = "button6";
             this.button6.Size = new System.Drawing.Size(164, 23);
             this.button6.TabIndex = 5;
             this.button6.Text = "Fitness Training Video";
-            this.button6.UseVisualStyleBackColor = true;
+            this.button6.UseVisualStyleBackColor = false;
             this.button6.Click += new System.EventHandler(this.button6_Click);
             // 
             // button5
             // 
+            this.button5.BackColor = System.Drawing.Color.Cyan;
             this.button5.Location = new System.Drawing.Point(21, 172);
             this.button5.Name = "button5";
             this.button5.Size = new System.Drawing.Size(164, 23);
             this.button5.TabIndex = 4;
             this.button5.Text = "Dynamic Movement Screen";
-            this.button5.UseVisualStyleBackColor = true;
+            this.button5.UseVisualStyleBackColor = false;
             this.button5.Click += new System.EventHandler(this.button5_Click);
             // 
             // button4
             // 
+            this.button4.BackColor = System.Drawing.Color.Cyan;
             this.button4.Location = new System.Drawing.Point(21, 143);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(164, 23);
             this.button4.TabIndex = 3;
             this.button4.Text = "Dashboard";
-            this.button4.UseVisualStyleBackColor = true;
+            this.button4.UseVisualStyleBackColor = false;
             this.button4.Click += new System.EventHandler(this.button4_Click);
             // 
             // button3
             // 
+            this.button3.BackColor = System.Drawing.Color.Cyan;
             this.button3.Location = new System.Drawing.Point(21, 114);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(164, 23);
             this.button3.TabIndex = 2;
             this.button3.Text = "Add New Trainning";
-            this.button3.UseVisualStyleBackColor = true;
+            this.button3.UseVisualStyleBackColor = false;
             this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
             // button2
             // 
+            this.button2.BackColor = System.Drawing.Color.Cyan;
             this.button2.Location = new System.Drawing.Point(21, 32);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(164, 23);
             this.button2.TabIndex = 1;
             this.button2.Text = "Reset Password";
-            this.button2.UseVisualStyleBackColor = true;
+            this.button2.UseVisualStyleBackColor = false;
             this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // axShockwaveFlash1
@@ -201,26 +235,6 @@
             this.axShockwaveFlash1.OcxState = ((System.Windows.Forms.AxHost.State)(resources.GetObject("axShockwaveFlash1.OcxState")));
             this.axShockwaveFlash1.Size = new System.Drawing.Size(589, 376);
             this.axShockwaveFlash1.TabIndex = 4;
-            // 
-            // btnDashboard
-            // 
-            this.btnDashboard.Location = new System.Drawing.Point(44, 402);
-            this.btnDashboard.Name = "btnDashboard";
-            this.btnDashboard.Size = new System.Drawing.Size(121, 33);
-            this.btnDashboard.TabIndex = 14;
-            this.btnDashboard.Text = "To Dashboard";
-            this.btnDashboard.UseVisualStyleBackColor = true;
-            this.btnDashboard.Click += new System.EventHandler(this.btnDashboard_Click);
-            // 
-            // btnLogin
-            // 
-            this.btnLogin.Location = new System.Drawing.Point(21, 3);
-            this.btnLogin.Name = "btnLogin";
-            this.btnLogin.Size = new System.Drawing.Size(164, 23);
-            this.btnLogin.TabIndex = 5;
-            this.btnLogin.Text = "Login";
-            this.btnLogin.UseVisualStyleBackColor = true;
-            this.btnLogin.Click += new System.EventHandler(this.btnLogin_Click);
             // 
             // Help
             // 

@@ -32,9 +32,7 @@
             this.label7 = new System.Windows.Forms.Label();
             this.btnDelete = new System.Windows.Forms.Button();
             this.btnExit = new System.Windows.Forms.Button();
-            this.btnNext = new System.Windows.Forms.Button();
             this.btnUpdate = new System.Windows.Forms.Button();
-            this.btnPrevious = new System.Windows.Forms.Button();
             this.btnAdd = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
             this.comboBox5 = new System.Windows.Forms.ComboBox();
@@ -54,19 +52,16 @@
             this.label6 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.button8 = new System.Windows.Forms.Button();
             this.button7 = new System.Windows.Forms.Button();
             this.txtSearch = new System.Windows.Forms.TextBox();
             this.panel3 = new System.Windows.Forms.Panel();
             this.label8 = new System.Windows.Forms.Label();
             this.txtAssmentDate = new System.Windows.Forms.TextBox();
             this.txtRefenNo = new System.Windows.Forms.TextBox();
-            this.txtName = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.txtLastname = new System.Windows.Forms.TextBox();
-            this.lblLastname = new System.Windows.Forms.Label();
+            this.comboBox6 = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewSelf)).BeginInit();
             this.panel1.SuspendLayout();
             this.panel5.SuspendLayout();
@@ -97,60 +92,46 @@
             // 
             // btnDelete
             // 
-            this.btnDelete.Location = new System.Drawing.Point(817, 92);
+            this.btnDelete.BackColor = System.Drawing.Color.Cyan;
+            this.btnDelete.Location = new System.Drawing.Point(602, 87);
             this.btnDelete.Name = "btnDelete";
             this.btnDelete.Size = new System.Drawing.Size(75, 23);
             this.btnDelete.TabIndex = 38;
             this.btnDelete.Text = "Delete";
-            this.btnDelete.UseVisualStyleBackColor = true;
+            this.btnDelete.UseVisualStyleBackColor = false;
             this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
             // 
             // btnExit
             // 
-            this.btnExit.Location = new System.Drawing.Point(727, 92);
+            this.btnExit.BackColor = System.Drawing.Color.Cyan;
+            this.btnExit.Location = new System.Drawing.Point(723, 87);
             this.btnExit.Name = "btnExit";
             this.btnExit.Size = new System.Drawing.Size(75, 23);
             this.btnExit.TabIndex = 37;
             this.btnExit.Text = "Exit";
-            this.btnExit.UseVisualStyleBackColor = true;
+            this.btnExit.UseVisualStyleBackColor = false;
             this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
-            // 
-            // btnNext
-            // 
-            this.btnNext.Location = new System.Drawing.Point(817, 46);
-            this.btnNext.Name = "btnNext";
-            this.btnNext.Size = new System.Drawing.Size(75, 23);
-            this.btnNext.TabIndex = 36;
-            this.btnNext.Text = "Next";
-            this.btnNext.UseVisualStyleBackColor = true;
             // 
             // btnUpdate
             // 
-            this.btnUpdate.Location = new System.Drawing.Point(817, -6);
+            this.btnUpdate.BackColor = System.Drawing.Color.Cyan;
+            this.btnUpdate.Location = new System.Drawing.Point(486, 87);
             this.btnUpdate.Name = "btnUpdate";
             this.btnUpdate.Size = new System.Drawing.Size(75, 23);
             this.btnUpdate.TabIndex = 35;
             this.btnUpdate.Text = "Update";
-            this.btnUpdate.UseVisualStyleBackColor = true;
+            this.btnUpdate.UseVisualStyleBackColor = false;
             this.btnUpdate.Click += new System.EventHandler(this.btnUpdate_Click);
-            // 
-            // btnPrevious
-            // 
-            this.btnPrevious.Location = new System.Drawing.Point(727, 46);
-            this.btnPrevious.Name = "btnPrevious";
-            this.btnPrevious.Size = new System.Drawing.Size(75, 23);
-            this.btnPrevious.TabIndex = 34;
-            this.btnPrevious.Text = "Previous";
-            this.btnPrevious.UseVisualStyleBackColor = true;
             // 
             // btnAdd
             // 
-            this.btnAdd.Location = new System.Drawing.Point(727, -6);
+            this.btnAdd.BackColor = System.Drawing.Color.Cyan;
+            this.btnAdd.Location = new System.Drawing.Point(371, 87);
             this.btnAdd.Name = "btnAdd";
             this.btnAdd.Size = new System.Drawing.Size(75, 23);
             this.btnAdd.TabIndex = 33;
             this.btnAdd.Text = "Add";
-            this.btnAdd.UseVisualStyleBackColor = true;
+            this.btnAdd.UseVisualStyleBackColor = false;
             this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
             // 
             // panel1
@@ -341,54 +322,44 @@
             // 
             // panel2
             // 
-            this.panel2.Controls.Add(this.button8);
+            this.panel2.BackColor = System.Drawing.Color.Gold;
             this.panel2.Controls.Add(this.button7);
             this.panel2.Controls.Add(this.txtSearch);
-            this.panel2.Location = new System.Drawing.Point(446, -6);
+            this.panel2.Location = new System.Drawing.Point(357, 12);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(200, 100);
+            this.panel2.Size = new System.Drawing.Size(611, 50);
             this.panel2.TabIndex = 29;
-            // 
-            // button8
-            // 
-            this.button8.Location = new System.Drawing.Point(11, 43);
-            this.button8.Name = "button8";
-            this.button8.Size = new System.Drawing.Size(75, 23);
-            this.button8.TabIndex = 3;
-            this.button8.Text = "Reset";
-            this.button8.UseVisualStyleBackColor = true;
             // 
             // button7
             // 
-            this.button7.Location = new System.Drawing.Point(122, 43);
+            this.button7.BackColor = System.Drawing.Color.Cyan;
+            this.button7.Location = new System.Drawing.Point(301, 16);
             this.button7.Name = "button7";
             this.button7.Size = new System.Drawing.Size(75, 23);
             this.button7.TabIndex = 2;
             this.button7.Text = "Search";
-            this.button7.UseVisualStyleBackColor = true;
+            this.button7.UseVisualStyleBackColor = false;
             this.button7.Click += new System.EventHandler(this.button7_Click);
             // 
             // txtSearch
             // 
-            this.txtSearch.Location = new System.Drawing.Point(11, 22);
+            this.txtSearch.Location = new System.Drawing.Point(414, 18);
             this.txtSearch.Name = "txtSearch";
             this.txtSearch.Size = new System.Drawing.Size(186, 20);
             this.txtSearch.TabIndex = 1;
             // 
             // panel3
             // 
+            this.panel3.Controls.Add(this.comboBox6);
             this.panel3.Controls.Add(this.label8);
             this.panel3.Controls.Add(this.txtAssmentDate);
             this.panel3.Controls.Add(this.txtRefenNo);
-            this.panel3.Controls.Add(this.txtLastname);
-            this.panel3.Controls.Add(this.txtName);
             this.panel3.Controls.Add(this.label3);
             this.panel3.Controls.Add(this.label2);
-            this.panel3.Controls.Add(this.lblLastname);
             this.panel3.Controls.Add(this.label1);
-            this.panel3.Location = new System.Drawing.Point(6, 7);
+            this.panel3.Location = new System.Drawing.Point(6, 12);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(345, 180);
+            this.panel3.Size = new System.Drawing.Size(345, 175);
             this.panel3.TabIndex = 27;
             // 
             // label8
@@ -410,17 +381,10 @@
             // 
             // txtRefenNo
             // 
-            this.txtRefenNo.Location = new System.Drawing.Point(141, 116);
+            this.txtRefenNo.Location = new System.Drawing.Point(141, 109);
             this.txtRefenNo.Name = "txtRefenNo";
             this.txtRefenNo.Size = new System.Drawing.Size(193, 20);
             this.txtRefenNo.TabIndex = 4;
-            // 
-            // txtName
-            // 
-            this.txtName.Location = new System.Drawing.Point(138, 57);
-            this.txtName.Name = "txtName";
-            this.txtName.Size = new System.Drawing.Size(193, 20);
-            this.txtName.TabIndex = 3;
             // 
             // label3
             // 
@@ -443,27 +407,19 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(16, 57);
+            this.label1.Location = new System.Drawing.Point(12, 78);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(35, 13);
+            this.label1.Size = new System.Drawing.Size(49, 13);
             this.label1.TabIndex = 0;
-            this.label1.Text = "Name";
+            this.label1.Text = "Fullname";
             // 
-            // txtLastname
+            // comboBox6
             // 
-            this.txtLastname.Location = new System.Drawing.Point(141, 85);
-            this.txtLastname.Name = "txtLastname";
-            this.txtLastname.Size = new System.Drawing.Size(193, 20);
-            this.txtLastname.TabIndex = 3;
-            // 
-            // lblLastname
-            // 
-            this.lblLastname.AutoSize = true;
-            this.lblLastname.Location = new System.Drawing.Point(16, 85);
-            this.lblLastname.Name = "lblLastname";
-            this.lblLastname.Size = new System.Drawing.Size(53, 13);
-            this.lblLastname.TabIndex = 0;
-            this.lblLastname.Text = "Lastname";
+            this.comboBox6.FormattingEnabled = true;
+            this.comboBox6.Location = new System.Drawing.Point(141, 70);
+            this.comboBox6.Name = "comboBox6";
+            this.comboBox6.Size = new System.Drawing.Size(193, 21);
+            this.comboBox6.TabIndex = 39;
             // 
             // Self_Mobility_Screen
             // 
@@ -474,9 +430,7 @@
             this.Controls.Add(this.dataGridViewSelf);
             this.Controls.Add(this.btnDelete);
             this.Controls.Add(this.btnExit);
-            this.Controls.Add(this.btnNext);
             this.Controls.Add(this.btnUpdate);
-            this.Controls.Add(this.btnPrevious);
             this.Controls.Add(this.btnAdd);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.panel5);
@@ -506,9 +460,7 @@
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Button btnDelete;
         private System.Windows.Forms.Button btnExit;
-        private System.Windows.Forms.Button btnNext;
         private System.Windows.Forms.Button btnUpdate;
-        private System.Windows.Forms.Button btnPrevious;
         private System.Windows.Forms.Button btnAdd;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Panel panel5;
@@ -523,14 +475,12 @@
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.Button button8;
         private System.Windows.Forms.Button button7;
         private System.Windows.Forms.TextBox txtSearch;
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.TextBox txtAssmentDate;
         private System.Windows.Forms.TextBox txtRefenNo;
-        private System.Windows.Forms.TextBox txtName;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
@@ -539,7 +489,6 @@
         private System.Windows.Forms.ComboBox comboBox3;
         private System.Windows.Forms.ComboBox comboBox2;
         private System.Windows.Forms.ComboBox comboBox1;
-        private System.Windows.Forms.TextBox txtLastname;
-        private System.Windows.Forms.Label lblLastname;
+        private System.Windows.Forms.ComboBox comboBox6;
     }
 }

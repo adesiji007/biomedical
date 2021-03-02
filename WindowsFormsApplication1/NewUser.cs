@@ -56,28 +56,10 @@ namespace WindowsFormsApplication1
             sConnStr = "Server = " + Server + "; " + "database = " + DB + "; " + "uid = " + UName + ";";
             myConn = new MySqlConnection(sConnStr);
 
-            DisplayTable("Select * fROM training_week");
-
-            
-            //try
-            //{
-            //    dt.Columns.Add("ClientType", typeof(string));
-            //    dt.Columns.Add("Firstname", typeof(string));
-            //    dt.Columns.Add("Lastname", typeof(string));
-            //    dt.Columns.Add("Registration_Date", typeof(string));
-            //    dt.Columns.Add("Registration_Number", typeof(int));
-            //    dt.Columns.Add("Email", typeof(string));
-            //    dt.Columns.Add("Password", typeof(string));
-
-                
-                
-            //}
-            //catch(Exception ex)
-            //{
-            //    MessageBox.Show(ex.Message);
-            //}
+            DisplayTable("Select * fROM bio_training_week");
 
         }
+
         private void DisplayTable(string sQuery)
         {
             try
@@ -86,6 +68,9 @@ namespace WindowsFormsApplication1
                 //MessageBox.Show("connected");
                 this.Hide();
                 DataTable dTable2 = new DataTable();
+                MySqlDataAdapter dAdapter = new MySqlDataAdapter("select * from bio_newuser", myConn);
+
+                MySqlCommandBuilder commandBuilder = new MySqlCommandBuilder(dAdapter);
 
                 MySqlDataAdapter myAdap = new MySqlDataAdapter(sQuery, sConnStr);
                 myAdap.Fill(dTable2);
@@ -106,53 +91,61 @@ namespace WindowsFormsApplication1
 
         private void btnRegister_Click(object sender, EventArgs e)
         {
-            MySqlDataAdapter dAdapter = new MySqlDataAdapter("SELECT * from newuser", myConn);
-
-
-            DataTable dTable = new DataTable();
-            dAdapter.Fill(dTable);
-
-            DataRow dr = dTable.NewRow();
-            //dr["ID"] = txtID.Text;
-            dr["ClientType"] = cboType.Text;
-            dr["Firstname"] = txtFirstname.Text;
-            dr["Lastname"] = txtLname.Text;
-            dr["Registration_Date"] = txtRegistrationDate.Text;
-            dr["Registration_Number"] = txtRegistrationNo.Text;
-            dr["Email"] = txtEmail.Text;
-            dr["Password"] = txtPassword.Text;
-
-
-            dTable.Rows.Add(dr);
-
-            // create a command builder
-            MySqlCommandBuilder commandBuilder = new MySqlCommandBuilder(dAdapter);
-
-
-            //update the data with mnodification table
-            int iRowsAffeected = dAdapter.Update(dTable);
-            dAdapter.Dispose();
-
-            if (iRowsAffeected > 0)
+            try
             {
-                // update the datagrid
-                // display if new row is added
-                string sQuery = "SELECT * FROM newuser";
-                DisplayTable(sQuery);
+                MySqlDataAdapter dAdapter = new MySqlDataAdapter("SELECT * from bio_newuser", myConn);
 
 
-                MessageBox.Show(iRowsAffeected + "Rows modified", "Data Update", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                DataTable dTable = new DataTable();
+                dAdapter.Fill(dTable);
+
+                DataRow dr = dTable.NewRow();
+                //dr["ID"] = txtID.Text;
+                dr["ClientType"] = cboType.Text;
+                dr["Firstname"] = txtFullname.Text;
+                dr["Registration_Date"] = Convert.ToDateTime(txtRegistrationDate.Text);
+                //Date date = format.parse(string);
+                //DateTime dt = Convert.ToDateTime(dateTime);
+                dr["Registration_Number"] = txtRegistrationNo.Text;
+                dr["Email"] = txtEmail.Text;
+                dr["Password"] = txtPassword.Text;
+
+
+                dTable.Rows.Add(dr);
+
+                // create a command builder
+                MySqlCommandBuilder commandBuilder = new MySqlCommandBuilder(dAdapter);
+
+
+                //update the data with mnodification table
+                int iRowsAffeected = dAdapter.Update(dTable);
+                dAdapter.Dispose();
+
+                if (iRowsAffeected > 0)
+                { 
+                    // update the datagrid
+                    // display if new row is added
+                    string sQuery = "SELECT * FROM bio_newuser";
+                    DisplayTable(sQuery);
+
+
+                    MessageBox.Show(iRowsAffeected + "Rows modified", "Data Update", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                else
+                {
+                    MessageBox.Show("No rows modified", "Data Update", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+
+                this.Show();
+
+                this.Hide();
+                login logg = new login();
+                logg.Show();
             }
-            else
+            catch (Exception ex)
             {
-                MessageBox.Show("No rows modified", "Data Update", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show(ex.Message);
             }
-
-            this.Show();
-
-            this.Hide();
-            login logg = new login();
-            logg.Show();
 
             //try
             //{

@@ -45,7 +45,9 @@ namespace WindowsFormsApplication1
             sConnStr = "Server = " + Server + "; " + "database = " + DB + "; " + "uid = " + UName + ";";
             myConn = new MySqlConnection(sConnStr);
 
-            DisplayTable("Select * fROM dynamic_movement");
+            // select fullname from the database
+            DisplayTable("SELECT a.*, u.Fullname FROM bio_dynamic_movement a, bio_user u WHERE a.user_id = u.user_ID");
+            populateName();
 
             }
         private void DisplayTable(string sQuery)
@@ -82,107 +84,96 @@ namespace WindowsFormsApplication1
 
         private void btnAdd_Click(object sender, EventArgs e)
         {
-
-            MySqlDataAdapter dAdapter = new MySqlDataAdapter("SELECT * from dynamic_movement", myConn);
-
-            DataTable dTable = new DataTable();
-            dAdapter.Fill(dTable);
-
-             DataRow dr = dTable.NewRow();
-           
-             dr["Name"] = txtName.Text;
-             dr["Lastname"] = txtLastname.Text;
-             dr["ReferenceNo"] = txtRefNo.Text;
-             dr["AssessmentDate"] = txtAssm.Text;
-             dr["DeepSquatHeelOnFloor"] = comboBoxDSHF.Text;
-             dr["DeepSquatHipBelowKnees"] = comboBoxDSHBK.Text;
-
-
-             dr["DeepSquatDowelOverHead"] = comboBoxDSDO.Text;
-             dr["DeepSquatPain"] = comboBoxDSPA.Text;
-
-             dr["LungeHipKneesAnkleFwd"] = cboBoxLHKAF.Text;
-             dr["LungeKneeToFloor"] = comboBoxLKF.Text;
-
-             dr["LungeMinUppBodyMov"] = comboBoxLMUBM.Text;
-             dr["LungeMaintBalan90"] = comboBoxLMAP.Text;
-
-             dr["ActiveSlTaiseFootFlexed"] = comboBoxASRFFD.Text;
-             dr["ActiveSlTaiseAnkleBone"] = comboBoxASRAB.Text;
-
-             dr["ActiveSlTaisePain"] = comboBoxASRP.Text;
-             dr["StandingHipExtHigHams"] = comboBoxSHEHH.Text;
-
-             dr["StandingHipExtPain"] = comboBoxSHEP.Text;
-             dr["SeatedTotPelv_Level"] = comboBoxSRPL.Text;
-             dr["SeatedTotPelv_DowelInChest"] = comboBoxSRPDCC.Text;
-             dr["SeatedTotPelv_Pain"] = comboBoxSRADP.Text;
-
-
-
-
-
-
-
-
-
-            ////myDT.Columns.Add("ID", typeof(int));
-            //myDT.Columns.Add("Name", typeof(string));
-            //myDT.Columns.Add("ReferenceNo", typeof(int));
-            //myDT.Columns.Add("AssessmentDate", typeof(string));
-            //myDT.Columns.Add("DeepSquatHeelOnFloor", typeof(int));
-            //myDT.Columns.Add("DeepSquatHipBelowKnees", typeof(int));
-            //myDT.Columns.Add("DeepSquatDowelOverHead", typeof(int));
-            //myDT.Columns.Add("DeepSquatPain", typeof(int));
-            //myDT.Columns.Add("LungeHipKneesAnkleFwd", typeof(int));
-            //myDT.Columns.Add("LungeKneeToFloor", typeof(int));
-            //myDT.Columns.Add("LungeMinUppBodyMov", typeof(int));
-            //myDT.Columns.Add("LungeMaintBalan90", typeof(int));
-            //myDT.Columns.Add("ActiveSlTaiseFootFlexed", typeof(int));
-            //myDT.Columns.Add("ActiveSlTaiseAnkleBone", typeof(int));
-            //myDT.Columns.Add(" ActiveSlTaisePain", typeof(int));
-            //myDT.Columns.Add("StandingHipExtHigHams", typeof(int));
-            //myDT.Columns.Add("StandingHipExtPain", typeof(int));
-            //myDT.Columns.Add("SeatedTotPelv_Level", typeof(int));
-            //myDT.Columns.Add("SeatedTotPelv_DowelInChest", typeof(int));
-            //myDT.Columns.Add("SeatedTotPelv_Pain", typeof(int));
-            
-            dTable.Rows.Add(dr);
-
-            // create a command builder
-            MySqlCommandBuilder commandBuilder = new MySqlCommandBuilder(dAdapter);
-
-
-            //update the data with mnodification table
-            int iRowsAffeected = dAdapter.Update(dTable);
-            dAdapter.Dispose();
-
-            if (iRowsAffeected > 0)
+            try
             {
-                // update the datagrid
-                // display if new row is added
-                string sQuery = "SELECT * FROM dynamic_movement";
-               DisplayTable(sQuery);
+
+                MySqlDataAdapter dAdapter = new MySqlDataAdapter("SELECT * from bio_dynamic_movement", myConn);
+
+                DataTable dTable = new DataTable();
+                dAdapter.Fill(dTable);
+
+                DataRow dr = dTable.NewRow();
+
+                dr["DynaMove_ID"] = txtDynaMoveID.Text;
+                dr["user_id"] = txtuserid.Text;
+                dr["Fullname"] = comboBox1.Text;
+                dr["ReferenceNo"] = txtRefNo.Text;
+                dr["AssessmentDate"] = dateTimePicker1.Text;
+                dr["DeepSquatHeelOnFloor"] = comboBoxDSHF.Text;
+                dr["DeepSquatHipBelowKnees"] = comboBoxDSHBK.Text;
+                
+                dr["DeepSquatDowelOverHead"] = comboBoxDSDO.Text;
+                dr["DeepSquatPain"] = comboBoxDSPA.Text;
+
+                dr["LungeHipKneesAnkleFwd"] = cboBoxLHKAF.Text;
+                dr["LungeKneeToFloor"] = comboBoxLKF.Text;
+
+                dr["LungeMinUppBodyMov"] = comboBoxLMUBM.Text;
+                dr["LungeMaintBalan90"] = comboBoxLMAP.Text;
+
+                dr["ActiveSlTaiseFootFlexed"] = comboBoxASRFFD.Text;
+                dr["ActiveSlTaiseAnkleBone"] = comboBoxASRAB.Text;
+
+                dr["ActiveSlTaisePain"] = comboBoxASRP.Text;
+                dr["StandingHipExtHigHams"] = comboBoxSHEHH.Text;
+
+                dr["StandingHipExtPain"] = comboBoxSHEP.Text;
+                dr["SeatedTotPelv_Level"] = comboBoxSRPL.Text;
+                dr["SeatedTotPelv_DowelInChest"] = comboBoxSRPDCC.Text;
+                dr["SeatedTotPelv_Pain"] = comboBoxSRADP.Text;
 
 
-                MessageBox.Show(iRowsAffeected + "Rows modified", "Data Update", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                dTable.Rows.Add(dr);
+
+                // create a command builder
+                MySqlCommandBuilder commandBuilder = new MySqlCommandBuilder(dAdapter);
+
+
+                //update the data with mnodification table
+                int iRowsAffeected = dAdapter.Update(dTable);
+                dAdapter.Dispose();
+
+                if (iRowsAffeected > 0)
+                {
+                    // update the datagrid
+                    // display if new row is added
+                    string sQuery = "SELECT * FROM bio_dynamic_movement";
+                    DisplayTable(sQuery);
+
+
+                    MessageBox.Show(iRowsAffeected + "Rows modified", "Data Update", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                else
+                {
+                    MessageBox.Show("No rows modified", "Data Update", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+
+                this.Show();
             }
-            else
+            catch (Exception ex)
             {
-                MessageBox.Show("No rows modified", "Data Update", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show(ex.Message);
             }
-
-            this.Show();
             
-            
-            //try
-            //{
-            //    myDT.Rows.Add(txtName.Text, txtRefNo.Text, txtAssm.Text, txtID.Text, comboBoxDSHF.Text, comboBoxDSHBK.Text, comboBoxDSDO.Text, comboBoxDSPA.Text, cboBoxLHKAF.Text, comboBoxLKF.Text, comboBoxLMUBM.Text, comboBoxLMAP.Text, comboBoxASRFFD.Text, comboBoxASRAB.Text, comboBoxASRP.Text, comboBoxSHEHH.Text, comboBoxSHEP.Text, comboBoxSRPL.Text, comboBoxSRPDCC.Text, comboBoxSRADP.Text);
-            //}
-            //catch (Exception ex)
-            //{
-            //    MessageBox.Show(ex.Message);
-            //}
+         
+        }
+        private void populateName()
+        {
+            try
+            {
+                String query = "select Fullname from bio_user";
+                MySqlDataAdapter myAdap = new MySqlDataAdapter(query, sConnStr);
+                DataTable userdata = new DataTable();
+                myAdap.Fill(userdata);
+                foreach (DataRow dr in userdata.Rows)
+                {
+                    comboBox1.Items.Add(dr[0]);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
 
         private void btnDelete_Click(object sender, EventArgs e)
@@ -200,60 +191,78 @@ namespace WindowsFormsApplication1
 
         private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            i = e.RowIndex;
-            DataGridViewRow row = dataGridView1.Rows[i];
-            txtName.Text = row.Cells[0].Value.ToString();
-            txtLastname.Text = row.Cells[0].Value.ToString();
-            txtRefNo.Text = row.Cells[1].Value.ToString();
-            txtAssm.Text = row.Cells[2].Value.ToString();
-            //txtID.Text = row.Cells[3].Value.ToString();
-            comboBoxDSHF.Text = row.Cells[3].Value.ToString();
-            comboBoxDSHBK.Text = row.Cells[3].Value.ToString();
-            comboBoxDSDO.Text = row.Cells[3].Value.ToString();
-            comboBoxDSPA.Text = row.Cells[3].Value.ToString();
-            cboBoxLHKAF.Text = row.Cells[3].Value.ToString();
-            comboBoxLKF.Text = row.Cells[3].Value.ToString();
-            comboBoxLMUBM.Text = row.Cells[3].Value.ToString();
-            comboBoxLMAP.Text = row.Cells[3].Value.ToString();
-            comboBoxASRFFD.Text = row.Cells[3].Value.ToString();
-            comboBoxASRAB.Text = row.Cells[3].Value.ToString();
-            comboBoxASRP.Text = row.Cells[3].Value.ToString();
-            comboBoxSHEHH.Text = row.Cells[3].Value.ToString();
-            comboBoxSHEP.Text = row.Cells[3].Value.ToString();
-            comboBoxSRPL.Text = row.Cells[3].Value.ToString();
-            comboBoxSRPDCC.Text = row.Cells[3].Value.ToString();
-            comboBoxSRADP.Text = row.Cells[3].Value.ToString();
+            try
+            {
+                i = e.RowIndex;
+                DataGridViewRow row = dataGridView1.Rows[i];
+                
+                txtDynaMoveID.Text = row.Cells[0].Value.ToString();
+                txtuserid.Text = row.Cells[1].Value.ToString();
+                txtRefNo.Text = row.Cells[2].Value.ToString();
+                comboBox1.Text = row.Cells[3].Value.ToString();
+                dateTimePicker1.Text = row.Cells[4].Value.ToString();
+                comboBoxDSHF.Text = row.Cells[5].Value.ToString();
+                comboBoxDSHBK.Text = row.Cells[6].Value.ToString();
+                comboBoxDSDO.Text = row.Cells[7].Value.ToString();
+                comboBoxDSPA.Text = row.Cells[8].Value.ToString();
+                cboBoxLHKAF.Text = row.Cells[9].Value.ToString();
+                comboBoxLKF.Text = row.Cells[10].Value.ToString();
+                comboBoxLMUBM.Text = row.Cells[11].Value.ToString();
+                comboBoxLMAP.Text = row.Cells[12].Value.ToString();
+                comboBoxASRFFD.Text = row.Cells[13].Value.ToString();
+                comboBoxASRAB.Text = row.Cells[14].Value.ToString();
+                comboBoxASRP.Text = row.Cells[15].Value.ToString();
+                comboBoxSHEHH.Text = row.Cells[16].Value.ToString();
+                comboBoxSHEP.Text = row.Cells[17].Value.ToString();
+                comboBoxSRPL.Text = row.Cells[18].Value.ToString();
+                comboBoxSRPDCC.Text = row.Cells[19].Value.ToString();
+                comboBoxSRADP.Text = row.Cells[20].Value.ToString();
+            }
+            catch (Exception ex)
+            {
+                //MessageBox.Show(ex.Message);
+            }
         }
 
         private void btnUpdate_Click(object sender, EventArgs e)
         {
-            DataGridViewRow row = dataGridView1.Rows[i];
-            row.Cells[0].Value = txtName.Text;
-            row.Cells[0].Value = txtLastname.Text;
-            row.Cells[1].Value = txtRefNo.Text;
-            row.Cells[2].Value = txtAssm.Text;
-            //row.Cells[3].Value = txtID.Text;
-            row.Cells[4].Value = comboBoxDSHF.Text;
-            row.Cells[5].Value = comboBoxDSHBK.Text;
-            row.Cells[6].Value = comboBoxDSDO.Text;
-            row.Cells[7].Value = comboBoxDSPA.Text;
-            row.Cells[8].Value = cboBoxLHKAF.Text;
-            row.Cells[9].Value = comboBoxLKF.Text;
-            row.Cells[10].Value = comboBoxLMUBM.Text;
-            row.Cells[11].Value = comboBoxLMAP.Text;
-            row.Cells[12].Value = comboBoxASRFFD.Text;
-            row.Cells[13].Value = comboBoxASRAB.Text;
-            row.Cells[14].Value = comboBoxASRP.Text;
-            row.Cells[15].Value = comboBoxSHEHH.Text;
-            row.Cells[16].Value = comboBoxSHEP.Text;
-            row.Cells[17].Value = comboBoxSRPL.Text;
-            row.Cells[18].Value = comboBoxSRPDCC.Text;
-            row.Cells[19].Value = comboBoxSRADP.Text;
+            try
+            {
+                DataGridViewRow row = dataGridView1.Rows[i];
+                
+                row.Cells[0].Value = txtDynaMoveID.Text;
+                row.Cells[1].Value = txtuserid.Text;
+                row.Cells[2].Value = txtRefNo.Text;
+                row.Cells[3].Value = comboBox1.Text;
+                row.Cells[4].Value = dateTimePicker1.Text;
+                row.Cells[5].Value = comboBoxDSHF.Text;
+                row.Cells[6].Value = comboBoxDSHBK.Text;
+                row.Cells[7].Value = comboBoxDSDO.Text;
+                row.Cells[8].Value = comboBoxDSPA.Text;
+                row.Cells[9].Value = cboBoxLHKAF.Text;
+                row.Cells[10].Value = comboBoxLKF.Text;
+                row.Cells[11].Value = comboBoxLMUBM.Text;
+                row.Cells[12].Value = comboBoxLMAP.Text;
+                row.Cells[13].Value = comboBoxASRFFD.Text;
+                row.Cells[14].Value = comboBoxASRAB.Text;
+                row.Cells[15].Value = comboBoxASRP.Text;
+                row.Cells[16].Value = comboBoxSHEHH.Text;
+                row.Cells[17].Value = comboBoxSHEP.Text;
+                row.Cells[18].Value = comboBoxSRPL.Text;
+                row.Cells[19].Value = comboBoxSRPDCC.Text;
+                row.Cells[20].Value = comboBoxSRADP.Text;
+            }
+            catch (Exception ex)
+            {
+                //MessageBox.Show(ex.Message);
+            }
         }
 
         private void btnSearch_Click(object sender, EventArgs e)
         {
-            DisplayTable("Select * fROM dynamic_movement where Name = '" + txtSearch.Text + "'");
+
+            DisplayTable("Select * fROM bio_dynamic_movement where Fullname = '" + txtSearch.Text + "'");
+            this.Show();
         }
 
         private void comboBoxDSHF_SelectedIndexChanged(object sender, EventArgs e)
@@ -261,7 +270,7 @@ namespace WindowsFormsApplication1
             try
             {
                 MySqlConnection myConn = new MySqlConnection(sConnStr);
-                MySqlDataAdapter myAdap = new MySqlDataAdapter("SELECT DeepSquatHeelOnFloor FROM dynamic_movement", sConnStr);
+                MySqlDataAdapter myAdap = new MySqlDataAdapter("SELECT * FROM bio_dynamic_movement", sConnStr);
                 DataTable dt = new DataTable();
                 myAdap.Fill(dt);
                 dataGridView1.DataSource = dt;
@@ -275,49 +284,44 @@ namespace WindowsFormsApplication1
 
         private void txtSearch_TextChanged(object sender, EventArgs e)
         {
-            if (comboBoxDSHF.Text == "ID")
-            {
-                MySqlConnection myConn = new MySqlConnection(sConnStr);
-                MySqlDataAdapter myAdap = new MySqlDataAdapter("SELECT ID FROM dynamic_movement where id like '" + txtSearch.Text + "%'", sConnStr);
-                DataTable dt = new DataTable();
-                myAdap.Fill(dt);
-                dataGridView1.DataSource = dt;
-            }
-            else if (comboBoxDSHF.Text == "Name")
-            {
-                MySqlConnection myConn = new MySqlConnection(sConnStr);
-                MySqlDataAdapter myAdap = new MySqlDataAdapter("SELECT Name FROM dynamic_movement where id like '" + txtSearch.Text + "%'", sConnStr);
-                DataTable dt = new DataTable();
-                myAdap.Fill(dt);
-                dataGridView1.DataSource = dt;
-            }
+            DisplayTable("Select * fROM  bio_dynamic_movement where Fullname = '" + txtSearch.Text + "'");
+            this.Show();
         }
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-             i = e.RowIndex;
-            DataGridViewRow row = dataGridView1.Rows[i];
-            txtName.Text = row.Cells[0].Value.ToString();
-            txtLastname.Text = row.Cells[0].Value.ToString();
-            txtRefNo.Text = row.Cells[1].Value.ToString();
-            txtAssm.Text = row.Cells[2].Value.ToString();
-            //txtID.Text = row.Cells[3].Value.ToString();
-            comboBoxDSHF.Text = row.Cells[4].Value.ToString();
-            comboBoxDSHBK.Text = row.Cells[5].Value.ToString();
-            comboBoxDSDO.Text = row.Cells[6].Value.ToString();
-            comboBoxDSPA.Text = row.Cells[7].Value.ToString();
-            cboBoxLHKAF.Text = row.Cells[8].Value.ToString();
-            comboBoxLKF.Text = row.Cells[9].Value.ToString();
-            comboBoxLMUBM.Text = row.Cells[10].Value.ToString();
-            comboBoxLMAP.Text = row.Cells[11].Value.ToString();
-            comboBoxASRFFD.Text = row.Cells[12].Value.ToString();
-            comboBoxASRAB.Text = row.Cells[13].Value.ToString();
-            comboBoxASRP.Text = row.Cells[14].Value.ToString();
-            comboBoxSHEHH.Text = row.Cells[15].Value.ToString();
-            comboBoxSHEP.Text = row.Cells[16].Value.ToString();
-            comboBoxSRPL.Text = row.Cells[17].Value.ToString();
-            comboBoxSRPDCC.Text = row.Cells[18].Value.ToString();
-            comboBoxSRADP.Text = row.Cells[19].Value.ToString();
+            try
+            {
+                i = e.RowIndex;
+                DataGridViewRow row = dataGridView1.Rows[i];
+
+                
+                txtDynaMoveID.Text = row.Cells[0].Value.ToString();
+                txtuserid.Text = row.Cells[1].Value.ToString();
+                txtRefNo.Text = row.Cells[2].Value.ToString();
+                comboBox1.Text = row.Cells[3].Value.ToString();
+                dateTimePicker1.Text = row.Cells[4].Value.ToString();
+                comboBoxDSHF.Text = row.Cells[5].Value.ToString();
+                comboBoxDSHBK.Text = row.Cells[6].Value.ToString();
+                comboBoxDSDO.Text = row.Cells[7].Value.ToString();
+                comboBoxDSPA.Text = row.Cells[8].Value.ToString();
+                cboBoxLHKAF.Text = row.Cells[9].Value.ToString();
+                comboBoxLKF.Text = row.Cells[10].Value.ToString();
+                comboBoxLMUBM.Text = row.Cells[11].Value.ToString();
+                comboBoxLMAP.Text = row.Cells[12].Value.ToString();
+                comboBoxASRFFD.Text = row.Cells[13].Value.ToString();
+                comboBoxASRAB.Text = row.Cells[14].Value.ToString();
+                comboBoxASRP.Text = row.Cells[15].Value.ToString();
+                comboBoxSHEHH.Text = row.Cells[16].Value.ToString();
+                comboBoxSHEP.Text = row.Cells[17].Value.ToString();
+                comboBoxSRPL.Text = row.Cells[18].Value.ToString();
+                comboBoxSRPDCC.Text = row.Cells[19].Value.ToString();
+                comboBoxSRADP.Text = row.Cells[20].Value.ToString();
+            }
+            catch (Exception ex)
+            {
+               // MessageBox.Show(ex.Message);
+            }
         }
 
         private void comboBoxLKF_SelectedIndexChanged(object sender, EventArgs e)
@@ -326,6 +330,11 @@ namespace WindowsFormsApplication1
         }
 
         private void btnEdit_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void panel8_Paint(object sender, PaintEventArgs e)
         {
 
         }

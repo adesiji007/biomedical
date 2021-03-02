@@ -134,6 +134,12 @@
     <Compile Include="Reffered_Form.Designer.cs">
       <DependentUpon>Reffered_Form.cs</DependentUpon>
     </Compile>
+    <Compile Include="Reset_Password.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reset_Password.Designer.cs">
+      <DependentUpon>Reset_Password.cs</DependentUpon>
+    </Compile>
     <Compile Include="Self_Mobility_Screen.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -227,6 +233,9 @@
     </Compile>
     <EmbeddedResource Include="Reffered_Form.resx">
       <DependentUpon>Reffered_Form.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reset_Password.resx">
+      <DependentUpon>Reset_Password.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Self_Mobility_Screen.resx">
       <DependentUpon>Self_Mobility_Screen.cs</DependentUpon>

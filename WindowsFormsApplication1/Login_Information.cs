@@ -50,5 +50,10 @@ namespace WindowsFormsApplication1
             Help dash = new Help(Server, DB, UName);
             dash.Show();
         }
+
+        private void Login_Information_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

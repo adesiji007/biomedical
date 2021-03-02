@@ -55,10 +55,10 @@
             this.cboType.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboType.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.cboType.FormattingEnabled = true;
-            this.cboType.Location = new System.Drawing.Point(367, 183);
+            this.cboType.Location = new System.Drawing.Point(273, 183);
             this.cboType.Margin = new System.Windows.Forms.Padding(2);
             this.cboType.Name = "cboType";
-            this.cboType.Size = new System.Drawing.Size(92, 21);
+            this.cboType.Size = new System.Drawing.Size(186, 21);
             this.cboType.TabIndex = 27;
             // 
             // label4
@@ -176,21 +176,23 @@
             // 
             // btnBTDashboard
             // 
+            this.btnBTDashboard.BackColor = System.Drawing.Color.Cyan;
             this.btnBTDashboard.Location = new System.Drawing.Point(271, 426);
             this.btnBTDashboard.Name = "btnBTDashboard";
             this.btnBTDashboard.Size = new System.Drawing.Size(120, 23);
             this.btnBTDashboard.TabIndex = 31;
             this.btnBTDashboard.Text = "Back to Dashboard";
-            this.btnBTDashboard.UseVisualStyleBackColor = true;
+            this.btnBTDashboard.UseVisualStyleBackColor = false;
             // 
             // btnExit
             // 
+            this.btnExit.BackColor = System.Drawing.Color.Cyan;
             this.btnExit.Location = new System.Drawing.Point(108, 426);
             this.btnExit.Name = "btnExit";
             this.btnExit.Size = new System.Drawing.Size(75, 23);
             this.btnExit.TabIndex = 30;
             this.btnExit.Text = "Exit";
-            this.btnExit.UseVisualStyleBackColor = true;
+            this.btnExit.UseVisualStyleBackColor = false;
             this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
             // 
             // lblShiftPattern

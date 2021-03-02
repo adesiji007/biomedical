@@ -31,17 +31,18 @@
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.txtSearch = new System.Windows.Forms.TextBox();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.btnReset = new System.Windows.Forms.Button();
             this.btnSearch = new System.Windows.Forms.Button();
             this.panel8 = new System.Windows.Forms.Panel();
-            this.txtLastname = new System.Windows.Forms.TextBox();
+            this.txtuserid = new System.Windows.Forms.TextBox();
+            this.txtDynaMoveID = new System.Windows.Forms.TextBox();
+            this.lbluser_id = new System.Windows.Forms.Label();
+            this.lblDynaMove_ID = new System.Windows.Forms.Label();
+            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.lblLastname = new System.Windows.Forms.Label();
-            this.txtAssm = new System.Windows.Forms.TextBox();
             this.txtRefNo = new System.Windows.Forms.TextBox();
-            this.txtName = new System.Windows.Forms.TextBox();
             this.label20 = new System.Windows.Forms.Label();
             this.label21 = new System.Windows.Forms.Label();
-            this.label22 = new System.Windows.Forms.Label();
             this.panel7 = new System.Windows.Forms.Panel();
             this.label18 = new System.Windows.Forms.Label();
             this.comboBoxSRADP = new System.Windows.Forms.ComboBox();
@@ -90,7 +91,7 @@
             this.btnUpdate = new System.Windows.Forms.Button();
             this.btnDelete = new System.Windows.Forms.Button();
             this.bntExit = new System.Windows.Forms.Button();
-            this.btnEdit = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.panel2.SuspendLayout();
             this.panel8.SuspendLayout();
@@ -106,106 +107,130 @@
             this.dataGridView1.AllowUserToOrderColumns = true;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
-            this.dataGridView1.Location = new System.Drawing.Point(487, 90);
+            this.dataGridView1.Location = new System.Drawing.Point(487, 125);
             this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(449, 414);
+            this.dataGridView1.Size = new System.Drawing.Size(548, 402);
             this.dataGridView1.TabIndex = 38;
             this.dataGridView1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellClick);
             this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             // 
             // txtSearch
             // 
-            this.txtSearch.Location = new System.Drawing.Point(3, 19);
+            this.txtSearch.Location = new System.Drawing.Point(182, 19);
             this.txtSearch.Name = "txtSearch";
-            this.txtSearch.Size = new System.Drawing.Size(182, 20);
+            this.txtSearch.Size = new System.Drawing.Size(90, 20);
             this.txtSearch.TabIndex = 1;
             this.txtSearch.TextChanged += new System.EventHandler(this.txtSearch_TextChanged);
             // 
             // panel2
             // 
-            this.panel2.Controls.Add(this.btnReset);
+            this.panel2.BackColor = System.Drawing.Color.Gold;
             this.panel2.Controls.Add(this.btnSearch);
             this.panel2.Controls.Add(this.txtSearch);
             this.panel2.Location = new System.Drawing.Point(744, 6);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(192, 79);
+            this.panel2.Size = new System.Drawing.Size(275, 51);
             this.panel2.TabIndex = 32;
-            // 
-            // btnReset
-            // 
-            this.btnReset.Location = new System.Drawing.Point(3, 45);
-            this.btnReset.Name = "btnReset";
-            this.btnReset.Size = new System.Drawing.Size(75, 23);
-            this.btnReset.TabIndex = 3;
-            this.btnReset.Text = "Reset";
-            this.btnReset.UseVisualStyleBackColor = true;
             // 
             // btnSearch
             // 
-            this.btnSearch.Location = new System.Drawing.Point(110, 45);
+            this.btnSearch.BackColor = System.Drawing.Color.Cyan;
+            this.btnSearch.Location = new System.Drawing.Point(101, 19);
             this.btnSearch.Name = "btnSearch";
             this.btnSearch.Size = new System.Drawing.Size(75, 23);
             this.btnSearch.TabIndex = 2;
             this.btnSearch.Text = "Search";
-            this.btnSearch.UseVisualStyleBackColor = true;
+            this.btnSearch.UseVisualStyleBackColor = false;
             this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
             // 
             // panel8
             // 
-            this.panel8.Controls.Add(this.txtLastname);
+            this.panel8.BackColor = System.Drawing.Color.Gold;
+            this.panel8.Controls.Add(this.txtuserid);
+            this.panel8.Controls.Add(this.txtDynaMoveID);
+            this.panel8.Controls.Add(this.lbluser_id);
+            this.panel8.Controls.Add(this.lblDynaMove_ID);
+            this.panel8.Controls.Add(this.dateTimePicker1);
+            this.panel8.Controls.Add(this.comboBox1);
             this.panel8.Controls.Add(this.lblLastname);
-            this.panel8.Controls.Add(this.txtAssm);
             this.panel8.Controls.Add(this.txtRefNo);
-            this.panel8.Controls.Add(this.txtName);
             this.panel8.Controls.Add(this.label20);
             this.panel8.Controls.Add(this.label21);
-            this.panel8.Controls.Add(this.label22);
             this.panel8.Location = new System.Drawing.Point(7, 6);
             this.panel8.Name = "panel8";
-            this.panel8.Size = new System.Drawing.Size(718, 51);
+            this.panel8.Size = new System.Drawing.Size(731, 51);
             this.panel8.TabIndex = 39;
+            this.panel8.Paint += new System.Windows.Forms.PaintEventHandler(this.panel8_Paint);
             // 
-            // txtLastname
+            // txtuserid
             // 
-            this.txtLastname.Location = new System.Drawing.Point(231, 20);
-            this.txtLastname.Name = "txtLastname";
-            this.txtLastname.Size = new System.Drawing.Size(100, 20);
-            this.txtLastname.TabIndex = 7;
+            this.txtuserid.Location = new System.Drawing.Point(146, 19);
+            this.txtuserid.Name = "txtuserid";
+            this.txtuserid.ReadOnly = true;
+            this.txtuserid.Size = new System.Drawing.Size(100, 20);
+            this.txtuserid.TabIndex = 11;
+            // 
+            // txtDynaMoveID
+            // 
+            this.txtDynaMoveID.Location = new System.Drawing.Point(25, 22);
+            this.txtDynaMoveID.Name = "txtDynaMoveID";
+            this.txtDynaMoveID.ReadOnly = true;
+            this.txtDynaMoveID.Size = new System.Drawing.Size(100, 20);
+            this.txtDynaMoveID.TabIndex = 11;
+            // 
+            // lbluser_id
+            // 
+            this.lbluser_id.AutoSize = true;
+            this.lbluser_id.Location = new System.Drawing.Point(154, 0);
+            this.lbluser_id.Name = "lbluser_id";
+            this.lbluser_id.Size = new System.Drawing.Size(41, 13);
+            this.lbluser_id.TabIndex = 10;
+            this.lbluser_id.Text = "user_id";
+            // 
+            // lblDynaMove_ID
+            // 
+            this.lblDynaMove_ID.AutoSize = true;
+            this.lblDynaMove_ID.Location = new System.Drawing.Point(22, 3);
+            this.lblDynaMove_ID.Name = "lblDynaMove_ID";
+            this.lblDynaMove_ID.Size = new System.Drawing.Size(76, 13);
+            this.lblDynaMove_ID.TabIndex = 9;
+            this.lblDynaMove_ID.Text = "DynaMove_ID";
+            // 
+            // dateTimePicker1
+            // 
+            this.dateTimePicker1.Location = new System.Drawing.Point(550, 23);
+            this.dateTimePicker1.Name = "dateTimePicker1";
+            this.dateTimePicker1.Size = new System.Drawing.Size(178, 20);
+            this.dateTimePicker1.TabIndex = 8;
+            // 
+            // comboBox1
+            // 
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Location = new System.Drawing.Point(280, 20);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(121, 21);
+            this.comboBox1.TabIndex = 7;
             // 
             // lblLastname
             // 
             this.lblLastname.AutoSize = true;
-            this.lblLastname.Location = new System.Drawing.Point(151, 22);
+            this.lblLastname.Location = new System.Drawing.Point(277, 0);
             this.lblLastname.Name = "lblLastname";
-            this.lblLastname.Size = new System.Drawing.Size(53, 13);
+            this.lblLastname.Size = new System.Drawing.Size(49, 13);
             this.lblLastname.TabIndex = 6;
-            this.lblLastname.Text = "Lastname";
-            // 
-            // txtAssm
-            // 
-            this.txtAssm.Location = new System.Drawing.Point(642, 16);
-            this.txtAssm.Name = "txtAssm";
-            this.txtAssm.Size = new System.Drawing.Size(73, 20);
-            this.txtAssm.TabIndex = 5;
+            this.lblLastname.Text = "Fullname";
             // 
             // txtRefNo
             // 
-            this.txtRefNo.Location = new System.Drawing.Point(433, 19);
+            this.txtRefNo.Location = new System.Drawing.Point(418, 22);
             this.txtRefNo.Name = "txtRefNo";
             this.txtRefNo.Size = new System.Drawing.Size(108, 20);
             this.txtRefNo.TabIndex = 4;
             // 
-            // txtName
-            // 
-            this.txtName.Location = new System.Drawing.Point(44, 19);
-            this.txtName.Name = "txtName";
-            this.txtName.Size = new System.Drawing.Size(89, 20);
-            this.txtName.TabIndex = 3;
-            // 
             // label20
             // 
             this.label20.AutoSize = true;
-            this.label20.Location = new System.Drawing.Point(547, 19);
+            this.label20.Location = new System.Drawing.Point(547, 3);
             this.label20.Name = "label20";
             this.label20.Size = new System.Drawing.Size(89, 13);
             this.label20.TabIndex = 2;
@@ -214,20 +239,11 @@
             // label21
             // 
             this.label21.AutoSize = true;
-            this.label21.Location = new System.Drawing.Point(337, 23);
+            this.label21.Location = new System.Drawing.Point(425, 3);
             this.label21.Name = "label21";
             this.label21.Size = new System.Drawing.Size(74, 13);
             this.label21.TabIndex = 1;
             this.label21.Text = "Reference No";
-            // 
-            // label22
-            // 
-            this.label22.AutoSize = true;
-            this.label22.Location = new System.Drawing.Point(3, 19);
-            this.label22.Name = "label22";
-            this.label22.Size = new System.Drawing.Size(35, 13);
-            this.label22.TabIndex = 0;
-            this.label22.Text = "Name";
             // 
             // panel7
             // 
@@ -239,9 +255,9 @@
             this.panel7.Controls.Add(this.label17);
             this.panel7.Controls.Add(this.Level);
             this.panel7.Controls.Add(this.button13);
-            this.panel7.Location = new System.Drawing.Point(10, 405);
+            this.panel7.Location = new System.Drawing.Point(6, 405);
             this.panel7.Name = "panel7";
-            this.panel7.Size = new System.Drawing.Size(469, 70);
+            this.panel7.Size = new System.Drawing.Size(473, 70);
             this.panel7.TabIndex = 44;
             // 
             // label18
@@ -329,9 +345,9 @@
             this.panel6.Controls.Add(this.comboBoxSHEHH);
             this.panel6.Controls.Add(this.label15);
             this.panel6.Controls.Add(this.button12);
-            this.panel6.Location = new System.Drawing.Point(13, 343);
+            this.panel6.Location = new System.Drawing.Point(6, 343);
             this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(466, 56);
+            this.panel6.Size = new System.Drawing.Size(473, 56);
             this.panel6.TabIndex = 43;
             // 
             // label16
@@ -475,12 +491,13 @@
             // 
             // button11
             // 
+            this.button11.BackColor = System.Drawing.SystemColors.Control;
             this.button11.Location = new System.Drawing.Point(4, 4);
             this.button11.Name = "button11";
             this.button11.Size = new System.Drawing.Size(96, 23);
             this.button11.TabIndex = 0;
             this.button11.Text = "Active SL Raise";
-            this.button11.UseVisualStyleBackColor = true;
+            this.button11.UseVisualStyleBackColor = false;
             // 
             // panel4
             // 
@@ -618,12 +635,13 @@
             // 
             // button10
             // 
+            this.button10.BackColor = System.Drawing.SystemColors.Control;
             this.button10.Location = new System.Drawing.Point(4, 1);
             this.button10.Name = "button10";
             this.button10.Size = new System.Drawing.Size(69, 23);
             this.button10.TabIndex = 0;
             this.button10.Text = "Lunge";
-            this.button10.UseVisualStyleBackColor = true;
+            this.button10.UseVisualStyleBackColor = false;
             // 
             // panel1
             // 
@@ -737,70 +755,76 @@
             // 
             // button9
             // 
+            this.button9.BackColor = System.Drawing.SystemColors.Control;
             this.button9.Location = new System.Drawing.Point(7, 8);
             this.button9.Name = "button9";
             this.button9.Size = new System.Drawing.Size(75, 23);
             this.button9.TabIndex = 0;
             this.button9.Text = "Deep Squat";
-            this.button9.UseVisualStyleBackColor = true;
+            this.button9.UseVisualStyleBackColor = false;
             // 
             // btnAdd
             // 
+            this.btnAdd.BackColor = System.Drawing.Color.Cyan;
             this.btnAdd.Location = new System.Drawing.Point(6, 494);
             this.btnAdd.Name = "btnAdd";
-            this.btnAdd.Size = new System.Drawing.Size(75, 23);
+            this.btnAdd.Size = new System.Drawing.Size(75, 33);
             this.btnAdd.TabIndex = 45;
-            this.btnAdd.Text = "Add New";
-            this.btnAdd.UseVisualStyleBackColor = true;
+            this.btnAdd.Text = "Add ";
+            this.btnAdd.UseVisualStyleBackColor = false;
             this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
             // 
             // btnUpdate
             // 
-            this.btnUpdate.Location = new System.Drawing.Point(168, 494);
+            this.btnUpdate.BackColor = System.Drawing.Color.Cyan;
+            this.btnUpdate.Location = new System.Drawing.Point(270, 494);
             this.btnUpdate.Name = "btnUpdate";
-            this.btnUpdate.Size = new System.Drawing.Size(75, 23);
+            this.btnUpdate.Size = new System.Drawing.Size(88, 33);
             this.btnUpdate.TabIndex = 47;
             this.btnUpdate.Text = "Update";
-            this.btnUpdate.UseVisualStyleBackColor = true;
+            this.btnUpdate.UseVisualStyleBackColor = false;
             this.btnUpdate.Click += new System.EventHandler(this.btnUpdate_Click);
             // 
             // btnDelete
             // 
-            this.btnDelete.Location = new System.Drawing.Point(87, 494);
+            this.btnDelete.BackColor = System.Drawing.Color.Cyan;
+            this.btnDelete.Location = new System.Drawing.Point(108, 494);
             this.btnDelete.Name = "btnDelete";
-            this.btnDelete.Size = new System.Drawing.Size(75, 23);
+            this.btnDelete.Size = new System.Drawing.Size(88, 33);
             this.btnDelete.TabIndex = 46;
             this.btnDelete.Text = "Delete";
-            this.btnDelete.UseVisualStyleBackColor = true;
+            this.btnDelete.UseVisualStyleBackColor = false;
             this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
             // 
             // bntExit
             // 
-            this.bntExit.Location = new System.Drawing.Point(411, 494);
+            this.bntExit.BackColor = System.Drawing.Color.Cyan;
+            this.bntExit.Location = new System.Drawing.Point(404, 494);
             this.bntExit.Name = "bntExit";
-            this.bntExit.Size = new System.Drawing.Size(75, 23);
+            this.bntExit.Size = new System.Drawing.Size(75, 33);
             this.bntExit.TabIndex = 48;
             this.bntExit.Text = "Exit";
-            this.bntExit.UseVisualStyleBackColor = true;
+            this.bntExit.UseVisualStyleBackColor = false;
             this.bntExit.Click += new System.EventHandler(this.bntExit_Click);
             // 
-            // btnEdit
+            // button1
             // 
-            this.btnEdit.Location = new System.Drawing.Point(249, 494);
-            this.btnEdit.Name = "btnEdit";
-            this.btnEdit.Size = new System.Drawing.Size(75, 23);
-            this.btnEdit.TabIndex = 48;
-            this.btnEdit.Text = "Edit";
-            this.btnEdit.UseVisualStyleBackColor = true;
-            this.btnEdit.Click += new System.EventHandler(this.btnEdit_Click);
+            this.button1.BackColor = System.Drawing.Color.Violet;
+            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.Location = new System.Drawing.Point(495, 62);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(540, 49);
+            this.button1.TabIndex = 49;
+            this.button1.Text = "Patient Dynamic Movement Excercise";
+            this.button1.UseVisualStyleBackColor = false;
             // 
             // Dynamic_Movement
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(948, 551);
+            this.ClientSize = new System.Drawing.Size(1066, 551);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.bntExit);
-            this.Controls.Add(this.btnEdit);
             this.Controls.Add(this.btnUpdate);
             this.Controls.Add(this.btnDelete);
             this.Controls.Add(this.btnAdd);
@@ -840,17 +864,12 @@
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.TextBox txtSearch;
         private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.Button btnReset;
         private System.Windows.Forms.Button btnSearch;
         private System.Windows.Forms.Panel panel8;
-        private System.Windows.Forms.TextBox txtLastname;
         private System.Windows.Forms.Label lblLastname;
-        private System.Windows.Forms.TextBox txtAssm;
         private System.Windows.Forms.TextBox txtRefNo;
-        private System.Windows.Forms.TextBox txtName;
         private System.Windows.Forms.Label label20;
         private System.Windows.Forms.Label label21;
-        private System.Windows.Forms.Label label22;
         private System.Windows.Forms.Panel panel7;
         private System.Windows.Forms.Label label18;
         private System.Windows.Forms.Label label17;
@@ -899,6 +918,12 @@
         private System.Windows.Forms.ComboBox comboBoxSRADP;
         private System.Windows.Forms.ComboBox comboBoxSRPDCC;
         private System.Windows.Forms.ComboBox comboBoxSRPL;
-        private System.Windows.Forms.Button btnEdit;
+        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.DateTimePicker dateTimePicker1;
+        private System.Windows.Forms.TextBox txtuserid;
+        private System.Windows.Forms.TextBox txtDynaMoveID;
+        private System.Windows.Forms.Label lbluser_id;
+        private System.Windows.Forms.Label lblDynaMove_ID;
+        private System.Windows.Forms.Button button1;
     }
 }

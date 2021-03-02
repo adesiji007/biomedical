@@ -40,17 +40,20 @@
             this.txtPassword = new System.Windows.Forms.TextBox();
             this.panel1 = new System.Windows.Forms.Panel();
             this.label5 = new System.Windows.Forms.Label();
-            this.button4 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
-            this.label4 = new System.Windows.Forms.Label();
+            this.butForget = new System.Windows.Forms.Button();
+            this.butNewuser = new System.Windows.Forms.Button();
             this.label6 = new System.Windows.Forms.Label();
             this.checkBox1 = new System.Windows.Forms.CheckBox();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.lblLogin = new System.Windows.Forms.Label();
+            this.button2 = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
+            this.panel2.SuspendLayout();
             this.SuspendLayout();
             // 
             // txtServer
             // 
-            this.txtServer.Location = new System.Drawing.Point(468, 27);
+            this.txtServer.Location = new System.Drawing.Point(492, 54);
             this.txtServer.Name = "txtServer";
             this.txtServer.Size = new System.Drawing.Size(163, 20);
             this.txtServer.TabIndex = 0;
@@ -59,7 +62,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(384, 27);
+            this.label1.Location = new System.Drawing.Point(408, 54);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(38, 13);
             this.label1.TabIndex = 1;
@@ -68,7 +71,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(384, 53);
+            this.label2.Location = new System.Drawing.Point(408, 80);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(53, 13);
             this.label2.TabIndex = 3;
@@ -76,7 +79,7 @@
             // 
             // txtDB
             // 
-            this.txtDB.Location = new System.Drawing.Point(468, 53);
+            this.txtDB.Location = new System.Drawing.Point(492, 80);
             this.txtDB.Name = "txtDB";
             this.txtDB.Size = new System.Drawing.Size(163, 20);
             this.txtDB.TabIndex = 2;
@@ -85,7 +88,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(384, 79);
+            this.label3.Location = new System.Drawing.Point(408, 106);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(55, 13);
             this.label3.TabIndex = 5;
@@ -93,7 +96,7 @@
             // 
             // txtUN
             // 
-            this.txtUN.Location = new System.Drawing.Point(468, 79);
+            this.txtUN.Location = new System.Drawing.Point(492, 106);
             this.txtUN.Name = "txtUN";
             this.txtUN.Size = new System.Drawing.Size(163, 20);
             this.txtUN.TabIndex = 4;
@@ -101,18 +104,20 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(556, 130);
+            this.button1.BackColor = System.Drawing.Color.Cyan;
+            this.button1.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.button1.Location = new System.Drawing.Point(580, 157);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(75, 23);
             this.button1.TabIndex = 6;
             this.button1.Text = "login";
-            this.button1.UseVisualStyleBackColor = true;
+            this.button1.UseVisualStyleBackColor = false;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // lblPassword
             // 
             this.lblPassword.AutoSize = true;
-            this.lblPassword.Location = new System.Drawing.Point(384, 113);
+            this.lblPassword.Location = new System.Drawing.Point(408, 140);
             this.lblPassword.Name = "lblPassword";
             this.lblPassword.Size = new System.Drawing.Size(53, 13);
             this.lblPassword.TabIndex = 5;
@@ -120,7 +125,7 @@
             // 
             // txtPassword
             // 
-            this.txtPassword.Location = new System.Drawing.Point(468, 105);
+            this.txtPassword.Location = new System.Drawing.Point(492, 132);
             this.txtPassword.Name = "txtPassword";
             this.txtPassword.PasswordChar = '*';
             this.txtPassword.Size = new System.Drawing.Size(163, 20);
@@ -132,9 +137,9 @@
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
             this.panel1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("panel1.BackgroundImage")));
             this.panel1.Controls.Add(this.label5);
-            this.panel1.Location = new System.Drawing.Point(12, 12);
+            this.panel1.Location = new System.Drawing.Point(12, 54);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(307, 289);
+            this.panel1.Size = new System.Drawing.Size(307, 274);
             this.panel1.TabIndex = 27;
             // 
             // label5
@@ -147,39 +152,32 @@
             this.label5.TabIndex = 0;
             this.label5.Text = "LOGIN";
             // 
-            // button4
+            // butForget
             // 
-            this.button4.Location = new System.Drawing.Point(387, 266);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(100, 35);
-            this.button4.TabIndex = 26;
-            this.button4.Text = "Forget Password";
-            this.button4.UseVisualStyleBackColor = true;
-            this.button4.Click += new System.EventHandler(this.button4_Click);
+            this.butForget.BackColor = System.Drawing.Color.Cyan;
+            this.butForget.Location = new System.Drawing.Point(387, 293);
+            this.butForget.Name = "butForget";
+            this.butForget.Size = new System.Drawing.Size(107, 35);
+            this.butForget.TabIndex = 26;
+            this.butForget.Text = "Forget Password";
+            this.butForget.UseVisualStyleBackColor = false;
+            this.butForget.Click += new System.EventHandler(this.butForget_Click);
             // 
-            // button3
+            // butNewuser
             // 
-            this.button3.Location = new System.Drawing.Point(543, 266);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(112, 35);
-            this.button3.TabIndex = 25;
-            this.button3.Text = "New User";
-            this.button3.UseVisualStyleBackColor = true;
-            this.button3.Click += new System.EventHandler(this.button3_Click);
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(388, 225);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(109, 13);
-            this.label4.TabIndex = 24;
-            this.label4.Text = "Forget your Password";
+            this.butNewuser.BackColor = System.Drawing.Color.Cyan;
+            this.butNewuser.Location = new System.Drawing.Point(543, 293);
+            this.butNewuser.Name = "butNewuser";
+            this.butNewuser.Size = new System.Drawing.Size(112, 35);
+            this.butNewuser.TabIndex = 25;
+            this.butNewuser.Text = "New User";
+            this.butNewuser.UseVisualStyleBackColor = false;
+            this.butNewuser.Click += new System.EventHandler(this.butNewuser_Click);
             // 
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(540, 225);
+            this.label6.Location = new System.Drawing.Point(540, 255);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(115, 13);
             this.label6.TabIndex = 23;
@@ -188,7 +186,7 @@
             // checkBox1
             // 
             this.checkBox1.AutoSize = true;
-            this.checkBox1.Location = new System.Drawing.Point(387, 136);
+            this.checkBox1.Location = new System.Drawing.Point(411, 163);
             this.checkBox1.Name = "checkBox1";
             this.checkBox1.Size = new System.Drawing.Size(100, 17);
             this.checkBox1.TabIndex = 22;
@@ -196,16 +194,47 @@
             this.checkBox1.UseVisualStyleBackColor = true;
             this.checkBox1.CheckedChanged += new System.EventHandler(this.checkBox1_CheckedChanged);
             // 
+            // panel2
+            // 
+            this.panel2.BackColor = System.Drawing.Color.MediumPurple;
+            this.panel2.Controls.Add(this.lblLogin);
+            this.panel2.Location = new System.Drawing.Point(12, 10);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(670, 38);
+            this.panel2.TabIndex = 28;
+            // 
+            // lblLogin
+            // 
+            this.lblLogin.AutoSize = true;
+            this.lblLogin.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblLogin.Location = new System.Drawing.Point(269, 12);
+            this.lblLogin.Name = "lblLogin";
+            this.lblLogin.Size = new System.Drawing.Size(99, 20);
+            this.lblLogin.TabIndex = 0;
+            this.lblLogin.Text = "Login Page";
+            // 
+            // button2
+            // 
+            this.button2.BackColor = System.Drawing.Color.Cyan;
+            this.button2.Location = new System.Drawing.Point(387, 244);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(107, 34);
+            this.button2.TabIndex = 30;
+            this.button2.Text = "Reset Password";
+            this.button2.UseVisualStyleBackColor = false;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
+            // 
             // login
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.ClientSize = new System.Drawing.Size(685, 340);
+            this.Controls.Add(this.button2);
+            this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
-            this.Controls.Add(this.button4);
-            this.Controls.Add(this.button3);
-            this.Controls.Add(this.label4);
+            this.Controls.Add(this.butForget);
+            this.Controls.Add(this.butNewuser);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.checkBox1);
             this.Controls.Add(this.button1);
@@ -223,6 +252,8 @@
             this.Load += new System.EventHandler(this.login_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            this.panel2.ResumeLayout(false);
+            this.panel2.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -241,10 +272,12 @@
         private System.Windows.Forms.TextBox txtPassword;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Button button4;
-        private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Button butForget;
+        private System.Windows.Forms.Button butNewuser;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.CheckBox checkBox1;
+        private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.Label lblLogin;
+        private System.Windows.Forms.Button button2;
     }
 }

@@ -54,12 +54,13 @@
             // 
             // btnDashboard
             // 
-            this.btnDashboard.Location = new System.Drawing.Point(508, 401);
+            this.btnDashboard.BackColor = System.Drawing.Color.Cyan;
+            this.btnDashboard.Location = new System.Drawing.Point(439, 379);
             this.btnDashboard.Name = "btnDashboard";
             this.btnDashboard.Size = new System.Drawing.Size(150, 34);
             this.btnDashboard.TabIndex = 9;
             this.btnDashboard.Text = "Back to Dashboard";
-            this.btnDashboard.UseVisualStyleBackColor = true;
+            this.btnDashboard.UseVisualStyleBackColor = false;
             this.btnDashboard.Click += new System.EventHandler(this.btnDashboard_Click);
             // 
             // axShockwaveFlash12

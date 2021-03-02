@@ -27,11 +27,19 @@ namespace WindowsFormsApplication1
             DB = db;
             UName = uname;
             //Pass = password;
+
         }
+        private MySqlConnection myConn;
+        private string sConnStr;
 
         private void Forget_Password_Load(object sender, EventArgs e)
         {
+            DataTable dTable = new DataTable();
 
+            sConnStr = "Server = " + Server + "; " + "database = " + DB + "; " + "uid = " + UName + ";";
+            myConn = new MySqlConnection(sConnStr);
+
+            //DisplayTable("Select * fROM bio_forget_password");
         }
 
         private void btnExit_Click(object sender, EventArgs e)
@@ -41,9 +49,20 @@ namespace WindowsFormsApplication1
 
         private void btnSubmit_Click(object sender, EventArgs e)
         {
-            //this.Hide();
-            //login logg = new login();
-            //logg.Show();
+            try
+            {
+                //myConn.Open();
+                //MessageBox.Show("connected");
+                this.Hide();
+                login logg = new login();
+
+                logg.Show();
+            }
+            catch
+            {
+                MessageBox.Show("not connected");
+            }
+
         }
     }
 }

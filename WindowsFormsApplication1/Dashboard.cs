@@ -20,6 +20,7 @@ namespace WindowsFormsApplication1
         //private string Pass;
         public DataTable myDT;
         int i;
+        private MySqlDataAdapter myAdap;
         
         public Dashboard(string server, string db, string uname)
         {
@@ -28,7 +29,13 @@ namespace WindowsFormsApplication1
             Server = server;
             DB = db;
             UName = uname;
-            //Pass = password;
+          //Pass = password;
+
+
+            //Server = fas-dbms.sunderland.ac.uk;
+            //DB = bg47de;
+            //UName = uname;
+            ////Pass = password;
 
             
         }
@@ -41,11 +48,7 @@ namespace WindowsFormsApplication1
             this.myDT = myDT;
         }
 
-        //public Dashboard()
-        //{
-        //    // TODO: Complete member initialization
-        //}
-
+       
         private MySqlConnection myConn;
         private string sConnStr;
      //--private DataTable dTable;
@@ -53,11 +56,18 @@ namespace WindowsFormsApplication1
         private void Form1_Load(object sender, EventArgs e)
         {
             DataTable dTable = new DataTable();
-            
-            sConnStr = "Server = " + Server + "; " + "database = " + DB + "; " + "uid = " + UName + ";";
+
+            //string sConnStr = "server = fas-dbms.sunderland.ac.uk;" + "database = bg47de;" + "uid = bg47de;" + "pwd = nifemi48DAMMY;";
+
+
+
+            sConnStr = "Server = " + Server + "; " +
+                        "database = " + DB + "; " +
+                        "uid = " + UName + ";";
+             
             myConn = new MySqlConnection(sConnStr);
 
-            DisplayTable("Select * fROM user");
+            DisplayTable("Select * fROM bio_user");
            
         }
         private void DisplayTable(string sQuery)
@@ -69,11 +79,12 @@ namespace WindowsFormsApplication1
                  this.Hide();
                 DataTable dTable2 = new DataTable();
                 
-                MySqlDataAdapter myAdap = new MySqlDataAdapter(sQuery, sConnStr);
+                myAdap = new MySqlDataAdapter(sQuery, sConnStr);
                 myAdap.Fill(dTable2);
                 myDT = dTable2;
 
                 dataGridView.DataSource = dTable2;
+                 //myAdap.Update()
                // listBox1.DataSource = dTable2;
                 myAdap.Dispose();
                 dTable2.Dispose();
@@ -85,44 +96,45 @@ namespace WindowsFormsApplication1
         }
 
         
-
-        private void Add_Click(object sender, EventArgs e)
-        {
+//select user table into new table/adapter 
+            private void Add_Click(object sender, EventArgs e)
+            {
                       
-           MySqlDataAdapter dAdapter = new MySqlDataAdapter("SELECT * from user", myConn);
-                     
-            
+           MySqlDataAdapter dAdapter = new MySqlDataAdapter("SELECT * from bio_user", myConn);
+                                 
             DataTable dTable = new DataTable();
             dAdapter.Fill(dTable);
 
+            // create a new row ana add data
+            // leave id field empty as this is auto-increament
                DataRow dr = dTable.NewRow();
                //dr["ID"] = txtID.Text;
                dr["ClientType"] = cboType.Text;
                dr["Title"] = txtTitle.Text;
-               dr["Firstname"] = txtName.Text;
-               dr["Lastname"] = txtLastname.Text;
+               dr["Fullname"] = txtFullname.Text;
                dr["Address"] = txtAddress.Text;
-               dr["DOB"] = txtDOB.Text;
+               dr["DOB"] = dateTimePicker1.Text;
                dr["Phone_Number"] = txtPhone_Number.Text;
-               dr["Gender"] = txtGender.Text;
+               dr["Email"] = txtEmail.Text;
+               dr["Gender"] = comboBox1.Text;
                dr["Occupation"] = txtOccupation.Text;
                dr["Reference_No"] = txtReference_Number.Text;
 
                dTable.Rows.Add(dr);
 
-               // create a command builder
+               // create a command builder and update adapter to save data
                MySqlCommandBuilder commandBuilder = new MySqlCommandBuilder(dAdapter);
             
-
-            //update the data with mnodification table
-            int iRowsAffeected = dAdapter.Update(dTable);
-            dAdapter.Dispose();
+               //update the data with mnodification table
+            
+                int iRowsAffeected = dAdapter.Update(dTable);
+                // reload data into data grid
+                dAdapter.Dispose();
 
             if(iRowsAffeected > 0)
             {
-                // update the datagrid
-                // display if new row is added
-                string sQuery = "SELECT * FROM user";
+                // update the datagrid                // display if new row is added
+                string sQuery = "SELECT * FROM bio_user";
                 DisplayTable(sQuery);
                 
 
@@ -139,22 +151,22 @@ namespace WindowsFormsApplication1
         public void UpdateTextBoxes()
         {
             // Display the contents of the row specified by the rowIndex variable
-            cboType.Text = dTable.Rows[1]["ClientType"].ToString();
-            txtTitle.Text = dTable.Rows[2]["Title"].ToString();
-            txtName.Text = dTable.Rows[3]["Firstname"].ToString();
-            txtLastname.Text = dTable.Rows[4]["Lastname"].ToString();
-            txtAddress.Text = dTable.Rows[5]["Address"].ToString();
-            txtDOB.Text = dTable.Rows[6]["DOB"].ToString();
-            txtPhone_Number.Text = dTable.Rows[7]["Phone_Number"].ToString();
-            txtGender.Text = dTable.Rows[8]["Gender"].ToString();
-            txtOccupation.Text = dTable.Rows[9]["Occupation"].ToString();
-            txtReference_Number.Text = dTable.Rows[10]["Reference_No"].ToString();
+            cboType.Text = dTable.Rows[0]["ClientType"].ToString();
+            txtTitle.Text = dTable.Rows[1]["Title"].ToString();
+            txtFullname.Text = dTable.Rows[2]["Fullname"].ToString();
+            txtAddress.Text = dTable.Rows[3]["Address"].ToString();
+            dateTimePicker1.Text = dTable.Rows[4]["DOB"].ToString();
+            txtPhone_Number.Text = dTable.Rows[5]["Phone_Number"].ToString();
+            txtEmail.Text = dTable.Rows[6]["Email"].ToString();
+            comboBox1.Text = dTable.Rows[7]["Gender"].ToString();
+            txtOccupation.Text = dTable.Rows[8]["Occupation"].ToString();
+            txtReference_Number.Text = dTable.Rows[9]["Reference_No"].ToString();
 
         }
 
         private void Search_Click(object sender, EventArgs e)
         {
-            DisplayTable("Select * fROM user where Firstname = '" + txtSearch.Text + "'");
+            DisplayTable("Select * fROM bio_user where Fullname = '" + txtSearch.Text + "'");
             this.Show();
             
         }
@@ -200,7 +212,7 @@ namespace WindowsFormsApplication1
 
         private void btnInsert_Click(object sender, EventArgs e)
         {
-            DisplayTable( "INSERT INTO user (Title,Firstname,Lastname, Address, DOB, Phone_Number, Gender, Occupation, Reference_Number) VALUES('" + txtTitle.Text + "','" + txtName.Text + "','" + txtLastname.Text + "','" + txtAddress.Text + "','" + txtDOB.Text + "','" + txtPhone_Number.Text + "', '" + txtGender.Text + "', '" + txtOccupation.Text + "','" + txtReference_Number.Text + "')");
+            DisplayTable("INSERT INTO bio_user (Title,Fullname, Address, DOB, Phone_Number, Gender, Occupation, Reference_Number) VALUES('" + txtTitle.Text + "','" + txtFullname.Text + "','" + txtAddress.Text + "','" + dateTimePicker1.Text + "','" + txtPhone_Number.Text + "', '" + comboBox1.Text + "', '" + txtOccupation.Text + "','" + txtReference_Number.Text + "')");
             this.Show();
         }
 
@@ -235,21 +247,26 @@ namespace WindowsFormsApplication1
 
         private void button3_Click(object sender, EventArgs e)
         {
-            MySqlDataAdapter dAdapter = new MySqlDataAdapter("SELECT Reference_No,Firstname,Lastname from user", myConn);
+            try
+            {
+                MySqlDataAdapter dAdapter = new MySqlDataAdapter("SELECT Reference_No,Fullname from bio_user", myConn);
 
 
-            DataTable dTable = new DataTable();
-            dAdapter.Fill(dTable);
+                DataTable dTable = new DataTable();
+                dAdapter.Fill(dTable);
 
-            DataRow dr = dTable.NewRow();
-            //dr["ID"] = txtID.Text;
-            //dr["Reference_No"] = Convert.ToInt32(txtReference_Number.Text);
-            dr["Firstname"] = txtName.Text;
-            dr["Lastname"] = txtLastname.Text;
-            
-            this.Hide();
-            Diagnosis_Information di = new Diagnosis_Information(Server, DB, UName );
-            di.Show();
+                DataRow dr = dTable.NewRow();
+                dr["Fullname"] = txtFullname.Text;
+
+
+                this.Hide();
+                Diagnosis_Information di = new Diagnosis_Information(Server, DB, UName);
+                di.Show();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
 
         private void butCentral_Index_Click(object sender, EventArgs e)
@@ -296,58 +313,77 @@ namespace WindowsFormsApplication1
 
         private void btnUpdate_Click(object sender, EventArgs e)
         {
-           // MySqlDataAdapter dAdapter = new MySqlDataAdapter("UPDATE user (SET Firstname = 'Tunde' and Lastname = 'Coxhoe')  WHERE (user_ID = '2')", myConn);
-            //UPDATE CUSTOMERS SET ADDRESS = 'Pune'WHERE ID = 6;
+            try
+            {
+                DataGridViewRow row = dataGridView.Rows[i];
+                //row.Cells[0].Value = txtID.Text;
+                row.Cells[0].Value = cboType.Text;
+                row.Cells[1].Value = txtTitle.Text;
+                row.Cells[2].Value = txtFullname.Text;
+                row.Cells[3].Value = txtAddress.Text;
+                row.Cells[4].Value = dateTimePicker1.Text;
+                row.Cells[5].Value = txtPhone_Number.Text;
+                row.Cells[6].Value = txtEmail.Text;
+                row.Cells[7].Value = comboBox1.Text;
+                row.Cells[8].Value = txtOccupation.Text;
+                row.Cells[9].Value = txtReference_Number.Text;
 
-
-            //DataTable dTable = new DataTable();
-            //dAdapter.Fill(dTable);
-
-            DataGridViewRow row = dataGridView.Rows[i];
-            //row.Cells[0].Value = txtID.Text;
-            row.Cells[1].Value = cboType.Text;
-            row.Cells[2].Value = txtTitle.Text;
-            row.Cells[3].Value = txtName.Text;
-            row.Cells[4].Value = txtLastname.Text;
-            row.Cells[5].Value = txtAddress.Text;
-            row.Cells[6].Value = txtDOB.Text;
-            row.Cells[7].Value = txtPhone_Number.Text;
-            row.Cells[8].Value = txtGender.Text;
-            row.Cells[9].Value = txtOccupation.Text;
-            row.Cells[10].Value = txtReference_Number.Text;
+                
+                DataTable temp = dataGridView.DataSource as DataTable;
+                //DataRow[] r = temp.
+                
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
               
 
         }
 
         private void dataGridView_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            i = e.RowIndex;
-            DataGridViewRow row = dataGridView.Rows[i];
-            //txtID.Text = row.Cells[0].Value.ToString();
-            cboType.Text = row.Cells[1].Value.ToString();
-            txtTitle.Text = row.Cells[2].Value.ToString();
-            txtName.Text = row.Cells[3].Value.ToString();
-            txtLastname.Text = row.Cells[4].Value.ToString();
-            txtAddress.Text = row.Cells[5].Value.ToString();
-            txtDOB.Text = row.Cells[6].Value.ToString();
-            txtPhone_Number.Text = row.Cells[7].Value.ToString();
-            txtGender.Text = row.Cells[8].Value.ToString();
-            txtOccupation.Text = row.Cells[9].Value.ToString();
-            txtReference_Number.Text = row.Cells[10].Value.ToString();
+            try 
+            {
+
+
+                i = e.RowIndex;
+                DataGridViewRow row = dataGridView.Rows[i];
+                //txtID.Text = row.Cells[0].Value.ToString();
+                cboType.Text = row.Cells[0].Value.ToString();
+                txtTitle.Text = row.Cells[1].Value.ToString();
+                txtFullname.Text = row.Cells[2].Value.ToString();
+                txtAddress.Text = row.Cells[3].Value.ToString();
+                dateTimePicker1.Text = row.Cells[4].Value.ToString();
+                txtPhone_Number.Text = row.Cells[5].Value.ToString();
+                txtEmail.Text = row.Cells[6].Value.ToString();
+                comboBox1.Text = row.Cells[7].Value.ToString();
+                txtOccupation.Text = row.Cells[8].Value.ToString();
+                txtReference_Number.Text = row.Cells[9].Value.ToString();
+            }
+            catch (Exception ex)
+            {
+                //MessageBox.Show(ex.Message);
+            }
            
         }
 
         private void btnDelete_Click(object sender, EventArgs e)
         {
+
             try
             {
-                dTable.Rows.RemoveAt(dataGridView.CurrentCell.RowIndex);
-                dataGridView.DataSource = dTable;
+                myDT.Rows.RemoveAt(dataGridView.CurrentCell.RowIndex);
+                dataGridView.DataSource = myDT;
+                
+
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message);
+                //MessageBox.Show(ex.Message);
             }
+
+            
         }
 
         private void butCaseLoadManage_Click(object sender, EventArgs e)
@@ -505,19 +541,62 @@ namespace WindowsFormsApplication1
 
         private void dataGridView_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            i = e.RowIndex;
-            DataGridViewRow row = dataGridView.Rows[i];
-            //txtID.Text = row.Cells[0].Value.ToString();
-            cboType.Text = row.Cells[1].Value.ToString();
-            txtTitle.Text = row.Cells[2].Value.ToString();
-            txtName.Text = row.Cells[3].Value.ToString();
-            txtLastname.Text = row.Cells[4].Value.ToString();
-            txtAddress.Text = row.Cells[5].Value.ToString();
-            txtDOB.Text = row.Cells[6].Value.ToString();
-            txtPhone_Number.Text = row.Cells[7].Value.ToString();
-            txtGender.Text = row.Cells[8].Value.ToString();
-            txtOccupation.Text = row.Cells[9].Value.ToString();
-            txtReference_Number.Text = row.Cells[10].Value.ToString();
+            try
+            {
+
+
+                i = e.RowIndex;
+                DataGridViewRow row = dataGridView.Rows[i];
+                //txtID.Text = row.Cells[0].Value.ToString();
+                cboType.Text = row.Cells[1].Value.ToString();
+                txtTitle.Text = row.Cells[1].Value.ToString();
+                txtFullname.Text = row.Cells[2].Value.ToString();
+                txtAddress.Text = row.Cells[3].Value.ToString();
+                dateTimePicker1.Text = row.Cells[4].Value.ToString();
+                txtPhone_Number.Text = row.Cells[5].Value.ToString();
+                txtEmail.Text = row.Cells[6].Value.ToString();
+                comboBox1.Text = row.Cells[7].Value.ToString();
+                txtOccupation.Text = row.Cells[8].Value.ToString();
+                txtReference_Number.Text = row.Cells[9].Value.ToString();
+            }
+            catch (Exception ex)
+            {
+                //MessageBox.Show(ex.Message);
+            }
         }
+
+        private void btnClear_Click(object sender, EventArgs e)
+        {
+              //DisplayTable("INSERT INTO bio_activity_record (TrainingCode,Fullname,DatOfActivity, TypeOfActivity, PreviousActivity, DateOfNextActivity) VALUES('" + txtTraining.Text + "','" + comboBox1.Text + "','" + txtDoActivity.Text + "','" + txtTypActivity.Text + "','" + txtPrv.Text + "','" + txtNextAct.Text + "')");
+            //this.Show();
+            clearFields();
+        }
+
+        private void clearFields()
+        {
+            txtTitle.Clear();
+            txtFullname.Clear();
+            txtAddress.Clear();
+            dateTimePicker1.Enabled = true;
+            txtPhone_Number.Clear();
+            txtEmail.Clear();
+            //comboBox1.Clear();
+            btnUpdate.Enabled = false;
+            cboType.Enabled = true;
+            txtOccupation.Enabled = true;
+            txtOccupation.Clear();
+            txtReference_Number.Enabled = true;
+            txtReference_Number.Clear();
+        
+        }
+
+        private void lblEmail_Click(object sender, EventArgs e)
+        {
+
+        }
+
+
+
+        public string bg47de { get; set; }
     }
 }

@@ -44,7 +44,7 @@ namespace WindowsFormsApplication1
             sConnStr = "Server = " + Server + "; " + "database = " + DB + "; " + "uid = " + UName + ";";
             myConn = new MySqlConnection(sConnStr);
 
-            DisplayTable("Select * fROM messanger");
+            DisplayTable("Select * fROM bio_messanger");
         }
         private void DisplayTable(string sQuery)
         {

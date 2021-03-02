@@ -43,7 +43,7 @@ namespace WindowsFormsApplication1
             sConnStr = "Server = " + Server + "; " + "database = " + DB + "; " + "uid = " + UName + ";";
             myConn = new MySqlConnection(sConnStr);
 
-            DisplayTable("Select * fROM clientdetail");
+            DisplayTable("Select * fROM bio_clientdetail");
         }
         private void DisplayTable(string sQuery)
         {
@@ -89,51 +89,88 @@ namespace WindowsFormsApplication1
 
         private void btnAdd_Click(object sender, EventArgs e)
         {
-
-            MySqlDataAdapter dAdapter = new MySqlDataAdapter("SELECT * from user", myConn);
-
-
-            DataTable dTable = new DataTable();
-            dAdapter.Fill(dTable);
-
-            DataRow dr = dTable.NewRow();
-            dr["ClientType"] = cboType.Text;
-            dr["Title"] = txtTitle.Text;
-            dr["Firstname"] = txtFirstname.Text;
-            dr["Lastname"] = txtLastname.Text;
-            dr["Address"] = txtAddress.Text;
-            dr["DOB"] = txtDOB.Text;
-            dr["Phone_Number"] = txtPhone_Number.Text;
-            dr["Gender"] = cboGender.Text;
-            dr["Occupation"] = txtOccupation.Text;
-            dr["Reference_No"] = txtRefNo.Text;
-
-            dTable.Rows.Add(dr);
-
-            // create a command builder
-            MySqlCommandBuilder commandBuilder = new MySqlCommandBuilder(dAdapter);
-
-
-            //update the data with mnodification table
-            int iRowsAffeected = dAdapter.Update(dTable);
-            dAdapter.Dispose();
-
-            if (iRowsAffeected > 0)
+            try
             {
-                // update the datagrid
-                // display if new row is added
-                string sQuery = "SELECT * FROM user";
-                DisplayTable(sQuery);
+
+                MySqlDataAdapter dAdapter = new MySqlDataAdapter("SELECT * from bio_user", myConn);
 
 
-                MessageBox.Show(iRowsAffeected + "Rows modified", "Data Update", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                DataTable dTable = new DataTable();
+                dAdapter.Fill(dTable);
+
+                DataRow dr = dTable.NewRow();
+                dr["ClientType"] = cboType.Text;
+                dr["Title"] = txtTitle.Text;
+                dr["Fullname"] = txtFullname.Text;
+                dr["Address"] = txtAddress.Text;
+                dr["DOB"] = txtDOB.Text;
+                dr["Phone_Number"] = txtEmail.Text;
+                dr["Email"] = txtPhone_Number.Text;
+                dr["Gender"] = cboGender.Text;
+                dr["Occupation"] = txtOccupation.Text;
+                dr["Reference_No"] = txtRefNo.Text;
+
+                dTable.Rows.Add(dr);
+
+                // create a command builder
+                MySqlCommandBuilder commandBuilder = new MySqlCommandBuilder(dAdapter);
+
+
+                //update the data with mnodification table
+                int iRowsAffeected = dAdapter.Update(dTable);
+                dAdapter.Dispose();
+
+                if (iRowsAffeected > 0)
+                {
+                    // update the datagrid
+                    // display if new row is added
+                    string sQuery = "SELECT * FROM bio_user";
+                    DisplayTable(sQuery);
+
+
+                    MessageBox.Show(iRowsAffeected + "Rows modified", "Data Update", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                else
+                {
+                    MessageBox.Show("No rows modified", "Data Update", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+
+                this.Show();
             }
-            else
+            catch (Exception ex)
             {
-                MessageBox.Show("No rows modified", "Data Update", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show(ex.Message);
             }
+        }
 
-            this.Show();
+        private void btnDelete_Click(object sender, EventArgs e)
+        {
+            //try
+            //{
+            //    myDT.Rows.RemoveAt(dataGridView1.CurrentCell.RowIndex);
+            //    dataGridView1.DataSource = myDT;
+            //}
+            //catch (Exception ex)
+            //{
+            //    MessageBox.Show(ex.Message);
+            //}
+        }
+
+        private void btnClear_Click(object sender, EventArgs e)
+        {
+            clearFields();
+        }
+        private void clearFields()
+        {
+            txtTitle.Clear();
+            txtFullname.Clear();
+            txtAddress.Clear();
+            txtDOB.Clear();
+            txtPhone_Number.Clear();
+            txtEmail.Clear();
+            cboGender.Enabled = true;
+            txtOccupation.Clear();
+            txtRefNo.Clear();
         }
     }
 }

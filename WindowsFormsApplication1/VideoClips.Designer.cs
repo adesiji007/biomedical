@@ -65,12 +65,13 @@
             // 
             // Choose
             // 
+            this.Choose.BackColor = System.Drawing.Color.Cyan;
             this.Choose.Location = new System.Drawing.Point(0, 3);
             this.Choose.Name = "Choose";
             this.Choose.Size = new System.Drawing.Size(171, 23);
             this.Choose.TabIndex = 10;
             this.Choose.Text = "Choose File";
-            this.Choose.UseVisualStyleBackColor = true;
+            this.Choose.UseVisualStyleBackColor = false;
             this.Choose.Click += new System.EventHandler(this.Choose_Click);
             // 
             // button9
@@ -95,42 +96,46 @@
             // 
             // but4
             // 
+            this.but4.BackColor = System.Drawing.Color.Cyan;
             this.but4.Location = new System.Drawing.Point(3, 203);
             this.but4.Name = "but4";
             this.but4.Size = new System.Drawing.Size(87, 23);
             this.but4.TabIndex = 3;
             this.but4.Text = "Play Video 4";
-            this.but4.UseVisualStyleBackColor = true;
+            this.but4.UseVisualStyleBackColor = false;
             this.but4.Click += new System.EventHandler(this.but4_Click);
             // 
             // but3
             // 
+            this.but3.BackColor = System.Drawing.Color.Cyan;
             this.but3.Location = new System.Drawing.Point(99, 203);
             this.but3.Name = "but3";
             this.but3.Size = new System.Drawing.Size(75, 23);
             this.but3.TabIndex = 2;
             this.but3.Text = "Play Video 3";
-            this.but3.UseVisualStyleBackColor = true;
+            this.but3.UseVisualStyleBackColor = false;
             this.but3.Click += new System.EventHandler(this.but3_Click);
             // 
             // but2
             // 
+            this.but2.BackColor = System.Drawing.Color.Cyan;
             this.but2.Location = new System.Drawing.Point(96, 165);
             this.but2.Name = "but2";
             this.but2.Size = new System.Drawing.Size(75, 23);
             this.but2.TabIndex = 1;
             this.but2.Text = "Play Video 2";
-            this.but2.UseVisualStyleBackColor = true;
+            this.but2.UseVisualStyleBackColor = false;
             this.but2.Click += new System.EventHandler(this.but2_Click);
             // 
             // but1
             // 
+            this.but1.BackColor = System.Drawing.Color.Cyan;
             this.but1.Location = new System.Drawing.Point(3, 165);
             this.but1.Name = "but1";
             this.but1.Size = new System.Drawing.Size(87, 23);
             this.but1.TabIndex = 0;
             this.but1.Text = "Play Video 1";
-            this.but1.UseVisualStyleBackColor = true;
+            this.but1.UseVisualStyleBackColor = false;
             this.but1.Click += new System.EventHandler(this.but1_Click);
             // 
             // textBox1_path

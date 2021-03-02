@@ -30,14 +30,12 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Dashboard));
             this.dataGridView = new System.Windows.Forms.DataGridView();
-            this.lblFname = new System.Windows.Forms.Label();
-            this.lblLastname = new System.Windows.Forms.Label();
+            this.lblFullname = new System.Windows.Forms.Label();
             this.lblAddress = new System.Windows.Forms.Label();
-            this.txtName = new System.Windows.Forms.TextBox();
+            this.txtFullname = new System.Windows.Forms.TextBox();
             this.btnAdd = new System.Windows.Forms.Button();
             this.txtSearch = new System.Windows.Forms.TextBox();
             this.Search = new System.Windows.Forms.Button();
-            this.txtLastname = new System.Windows.Forms.TextBox();
             this.txtAddress = new System.Windows.Forms.TextBox();
             this.btnVideo = new System.Windows.Forms.Button();
             this.butReffered = new System.Windows.Forms.Button();
@@ -84,9 +82,7 @@
             this.lblPhone_Number = new System.Windows.Forms.Label();
             this.txtPhone_Number = new System.Windows.Forms.TextBox();
             this.lblDOB = new System.Windows.Forms.Label();
-            this.txtDOB = new System.Windows.Forms.TextBox();
             this.lblGender = new System.Windows.Forms.Label();
-            this.txtGender = new System.Windows.Forms.TextBox();
             this.lblOccupation = new System.Windows.Forms.Label();
             this.txtOccupation = new System.Windows.Forms.TextBox();
             this.panel1 = new System.Windows.Forms.Panel();
@@ -101,6 +97,11 @@
             this.btnDelete = new System.Windows.Forms.Button();
             this.lblClientType = new System.Windows.Forms.Label();
             this.cboType = new System.Windows.Forms.ComboBox();
+            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
+            this.btnClear = new System.Windows.Forms.Button();
+            this.lblEmail = new System.Windows.Forms.Label();
+            this.txtEmail = new System.Windows.Forms.TextBox();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView)).BeginInit();
             this.menuStrip1.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -109,89 +110,75 @@
             // dataGridView
             // 
             this.dataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView.Location = new System.Drawing.Point(404, 55);
+            this.dataGridView.Location = new System.Drawing.Point(424, 36);
             this.dataGridView.Name = "dataGridView";
-            this.dataGridView.Size = new System.Drawing.Size(664, 144);
+            this.dataGridView.Size = new System.Drawing.Size(644, 163);
             this.dataGridView.TabIndex = 0;
             this.dataGridView.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView_CellClick);
             this.dataGridView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView_CellContentClick);
             // 
-            // lblFname
+            // lblFullname
             // 
-            this.lblFname.AutoSize = true;
-            this.lblFname.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.lblFname.Location = new System.Drawing.Point(2, 59);
-            this.lblFname.Name = "lblFname";
-            this.lblFname.Size = new System.Drawing.Size(46, 13);
-            this.lblFname.TabIndex = 1;
-            this.lblFname.Text = "Firstame";
-            // 
-            // lblLastname
-            // 
-            this.lblLastname.AutoSize = true;
-            this.lblLastname.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.lblLastname.Location = new System.Drawing.Point(2, 80);
-            this.lblLastname.Name = "lblLastname";
-            this.lblLastname.Size = new System.Drawing.Size(53, 13);
-            this.lblLastname.TabIndex = 2;
-            this.lblLastname.Text = "Lastname";
+            this.lblFullname.AutoSize = true;
+            this.lblFullname.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.lblFullname.Location = new System.Drawing.Point(7, 87);
+            this.lblFullname.Name = "lblFullname";
+            this.lblFullname.Size = new System.Drawing.Size(49, 13);
+            this.lblFullname.TabIndex = 1;
+            this.lblFullname.Text = "Fullname";
             // 
             // lblAddress
             // 
             this.lblAddress.AutoSize = true;
             this.lblAddress.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.lblAddress.Location = new System.Drawing.Point(3, 106);
+            this.lblAddress.Location = new System.Drawing.Point(11, 120);
             this.lblAddress.Name = "lblAddress";
             this.lblAddress.Size = new System.Drawing.Size(45, 13);
             this.lblAddress.TabIndex = 3;
             this.lblAddress.Text = "Address";
             // 
-            // txtName
+            // txtFullname
             // 
-            this.txtName.Location = new System.Drawing.Point(81, 59);
-            this.txtName.Name = "txtName";
-            this.txtName.Size = new System.Drawing.Size(100, 20);
-            this.txtName.TabIndex = 4;
+            this.txtFullname.Location = new System.Drawing.Point(86, 87);
+            this.txtFullname.Name = "txtFullname";
+            this.txtFullname.Size = new System.Drawing.Size(100, 20);
+            this.txtFullname.TabIndex = 4;
             // 
             // btnAdd
             // 
-            this.btnAdd.Location = new System.Drawing.Point(248, 122);
+            this.btnAdd.BackColor = System.Drawing.Color.Cyan;
+            this.btnAdd.Location = new System.Drawing.Point(187, 150);
             this.btnAdd.Name = "btnAdd";
             this.btnAdd.Size = new System.Drawing.Size(69, 27);
             this.btnAdd.TabIndex = 5;
             this.btnAdd.Text = "Add";
-            this.btnAdd.UseVisualStyleBackColor = true;
+            this.btnAdd.UseVisualStyleBackColor = false;
             this.btnAdd.Click += new System.EventHandler(this.Add_Click);
             // 
             // txtSearch
             // 
-            this.txtSearch.Location = new System.Drawing.Point(956, 29);
+            this.txtSearch.Location = new System.Drawing.Point(956, 3);
             this.txtSearch.Name = "txtSearch";
             this.txtSearch.Size = new System.Drawing.Size(100, 20);
             this.txtSearch.TabIndex = 6;
             // 
             // Search
             // 
-            this.Search.Location = new System.Drawing.Point(875, 25);
+            this.Search.BackColor = System.Drawing.Color.Cyan;
+            this.Search.Location = new System.Drawing.Point(808, 0);
             this.Search.Name = "Search";
-            this.Search.Size = new System.Drawing.Size(75, 29);
+            this.Search.Size = new System.Drawing.Size(75, 24);
             this.Search.TabIndex = 7;
             this.Search.Text = "Select";
-            this.Search.UseVisualStyleBackColor = true;
+            this.Search.UseVisualStyleBackColor = false;
             this.Search.Click += new System.EventHandler(this.Search_Click);
-            // 
-            // txtLastname
-            // 
-            this.txtLastname.Location = new System.Drawing.Point(81, 85);
-            this.txtLastname.Name = "txtLastname";
-            this.txtLastname.Size = new System.Drawing.Size(100, 20);
-            this.txtLastname.TabIndex = 11;
             // 
             // txtAddress
             // 
-            this.txtAddress.Location = new System.Drawing.Point(81, 106);
+            this.txtAddress.Location = new System.Drawing.Point(86, 113);
+            this.txtAddress.Multiline = true;
             this.txtAddress.Name = "txtAddress";
-            this.txtAddress.Size = new System.Drawing.Size(100, 20);
+            this.txtAddress.Size = new System.Drawing.Size(100, 41);
             this.txtAddress.TabIndex = 12;
             // 
             // btnVideo
@@ -205,6 +192,7 @@
             // 
             // butReffered
             // 
+            this.butReffered.BackColor = System.Drawing.Color.Cyan;
             this.butReffered.Image = ((System.Drawing.Image)(resources.GetObject("butReffered.Image")));
             this.butReffered.Location = new System.Drawing.Point(278, 157);
             this.butReffered.Name = "butReffered";
@@ -212,11 +200,12 @@
             this.butReffered.TabIndex = 56;
             this.butReffered.Text = "Reffered Form";
             this.butReffered.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.butReffered.UseVisualStyleBackColor = true;
+            this.butReffered.UseVisualStyleBackColor = false;
             this.butReffered.Click += new System.EventHandler(this.butReffered_Click);
             // 
             // butLetters
             // 
+            this.butLetters.BackColor = System.Drawing.Color.Cyan;
             this.butLetters.Image = ((System.Drawing.Image)(resources.GetObject("butLetters.Image")));
             this.butLetters.Location = new System.Drawing.Point(178, 157);
             this.butLetters.Name = "butLetters";
@@ -224,11 +213,12 @@
             this.butLetters.TabIndex = 55;
             this.butLetters.Text = "Letters";
             this.butLetters.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.butLetters.UseVisualStyleBackColor = true;
+            this.butLetters.UseVisualStyleBackColor = false;
             this.butLetters.Click += new System.EventHandler(this.butLetters_Click);
             // 
             // butInformation
             // 
+            this.butInformation.BackColor = System.Drawing.Color.Cyan;
             this.butInformation.Image = ((System.Drawing.Image)(resources.GetObject("butInformation.Image")));
             this.butInformation.Location = new System.Drawing.Point(469, 157);
             this.butInformation.Name = "butInformation";
@@ -236,11 +226,12 @@
             this.butInformation.TabIndex = 53;
             this.butInformation.Text = "Injury History";
             this.butInformation.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.butInformation.UseVisualStyleBackColor = true;
+            this.butInformation.UseVisualStyleBackColor = false;
             this.butInformation.Click += new System.EventHandler(this.butInformation_Click);
             // 
             // butCentral_Index
             // 
+            this.butCentral_Index.BackColor = System.Drawing.Color.Cyan;
             this.butCentral_Index.Image = ((System.Drawing.Image)(resources.GetObject("butCentral_Index.Image")));
             this.butCentral_Index.Location = new System.Drawing.Point(659, 156);
             this.butCentral_Index.Name = "butCentral_Index";
@@ -248,11 +239,12 @@
             this.butCentral_Index.TabIndex = 52;
             this.butCentral_Index.Text = "Dynamic Movement";
             this.butCentral_Index.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.butCentral_Index.UseVisualStyleBackColor = true;
+            this.butCentral_Index.UseVisualStyleBackColor = false;
             this.butCentral_Index.Click += new System.EventHandler(this.butCentral_Index_Click);
             // 
             // butCaseLoadManage
             // 
+            this.butCaseLoadManage.BackColor = System.Drawing.Color.Cyan;
             this.butCaseLoadManage.Image = ((System.Drawing.Image)(resources.GetObject("butCaseLoadManage.Image")));
             this.butCaseLoadManage.Location = new System.Drawing.Point(562, 157);
             this.butCaseLoadManage.Name = "butCaseLoadManage";
@@ -260,11 +252,12 @@
             this.butCaseLoadManage.TabIndex = 51;
             this.butCaseLoadManage.Text = "Static Postural Ass";
             this.butCaseLoadManage.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.butCaseLoadManage.UseVisualStyleBackColor = true;
+            this.butCaseLoadManage.UseVisualStyleBackColor = false;
             this.butCaseLoadManage.Click += new System.EventHandler(this.butCaseLoadManage_Click);
             // 
             // butCareDocument
             // 
+            this.butCareDocument.BackColor = System.Drawing.Color.Cyan;
             this.butCareDocument.Image = ((System.Drawing.Image)(resources.GetObject("butCareDocument.Image")));
             this.butCareDocument.Location = new System.Drawing.Point(371, 157);
             this.butCareDocument.Name = "butCareDocument";
@@ -272,11 +265,12 @@
             this.butCareDocument.TabIndex = 50;
             this.butCareDocument.Text = "Self Mobility";
             this.butCareDocument.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.butCareDocument.UseVisualStyleBackColor = true;
+            this.butCareDocument.UseVisualStyleBackColor = false;
             this.butCareDocument.Click += new System.EventHandler(this.butCareDocument_Click);
             // 
             // butTrainingHistory
             // 
+            this.butTrainingHistory.BackColor = System.Drawing.Color.Cyan;
             this.butTrainingHistory.Image = ((System.Drawing.Image)(resources.GetObject("butTrainingHistory.Image")));
             this.butTrainingHistory.Location = new System.Drawing.Point(374, 22);
             this.butTrainingHistory.Name = "butTrainingHistory";
@@ -284,11 +278,12 @@
             this.butTrainingHistory.TabIndex = 49;
             this.butTrainingHistory.Text = "Training History";
             this.butTrainingHistory.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.butTrainingHistory.UseVisualStyleBackColor = true;
+            this.butTrainingHistory.UseVisualStyleBackColor = false;
             this.butTrainingHistory.Click += new System.EventHandler(this.butTrainingHistory_Click);
             // 
             // butImpatient
             // 
+            this.butImpatient.BackColor = System.Drawing.Color.Cyan;
             this.butImpatient.Image = ((System.Drawing.Image)(resources.GetObject("butImpatient.Image")));
             this.butImpatient.Location = new System.Drawing.Point(177, 22);
             this.butImpatient.Name = "butImpatient";
@@ -296,11 +291,12 @@
             this.butImpatient.TabIndex = 48;
             this.butImpatient.Text = " Trainee";
             this.butImpatient.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.butImpatient.UseVisualStyleBackColor = true;
+            this.butImpatient.UseVisualStyleBackColor = false;
             this.butImpatient.Click += new System.EventHandler(this.butImpatient_Click);
             // 
             // button3
             // 
+            this.button3.BackColor = System.Drawing.Color.Cyan;
             this.button3.Image = ((System.Drawing.Image)(resources.GetObject("button3.Image")));
             this.button3.Location = new System.Drawing.Point(562, 22);
             this.button3.Name = "button3";
@@ -308,11 +304,12 @@
             this.button3.TabIndex = 47;
             this.button3.Text = "Diagnosis Information";
             this.button3.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.button3.UseVisualStyleBackColor = true;
+            this.button3.UseVisualStyleBackColor = false;
             this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
             // butCaseLoad
             // 
+            this.butCaseLoad.BackColor = System.Drawing.Color.Cyan;
             this.butCaseLoad.Image = ((System.Drawing.Image)(resources.GetObject("butCaseLoad.Image")));
             this.butCaseLoad.Location = new System.Drawing.Point(469, 22);
             this.butCaseLoad.Name = "butCaseLoad";
@@ -320,11 +317,12 @@
             this.butCaseLoad.TabIndex = 46;
             this.butCaseLoad.Text = "Training Weeks";
             this.butCaseLoad.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.butCaseLoad.UseVisualStyleBackColor = true;
+            this.butCaseLoad.UseVisualStyleBackColor = false;
             this.butCaseLoad.Click += new System.EventHandler(this.butCaseLoad_Click);
             // 
             // butTraining
             // 
+            this.butTraining.BackColor = System.Drawing.Color.Cyan;
             this.butTraining.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.butTraining.Image = ((System.Drawing.Image)(resources.GetObject("butTraining.Image")));
             this.butTraining.Location = new System.Drawing.Point(278, 22);
@@ -333,17 +331,18 @@
             this.butTraining.TabIndex = 44;
             this.butTraining.Text = "Activity Record";
             this.butTraining.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.butTraining.UseVisualStyleBackColor = true;
+            this.butTraining.UseVisualStyleBackColor = false;
             this.butTraining.Click += new System.EventHandler(this.butTraining_Click);
             // 
             // btn_LogOut
             // 
+            this.btn_LogOut.BackColor = System.Drawing.Color.Cyan;
             this.btn_LogOut.Location = new System.Drawing.Point(3, 6);
             this.btn_LogOut.Name = "btn_LogOut";
             this.btn_LogOut.Size = new System.Drawing.Size(119, 37);
             this.btn_LogOut.TabIndex = 43;
             this.btn_LogOut.Text = "Log Out";
-            this.btn_LogOut.UseVisualStyleBackColor = true;
+            this.btn_LogOut.UseVisualStyleBackColor = false;
             this.btn_LogOut.Click += new System.EventHandler(this.btn_LogOut_Click);
             // 
             // btnVideo2
@@ -357,6 +356,7 @@
             // 
             // menuStrip1
             // 
+            this.menuStrip1.BackColor = System.Drawing.Color.Gold;
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.dashboardToolStripMenuItem,
             this.trainingToolStripMenuItem,
@@ -585,7 +585,7 @@
             // 
             this.lblPhone_Number.AutoSize = true;
             this.lblPhone_Number.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.lblPhone_Number.Location = new System.Drawing.Point(-3, 157);
+            this.lblPhone_Number.Location = new System.Drawing.Point(2, 185);
             this.lblPhone_Number.Name = "lblPhone_Number";
             this.lblPhone_Number.Size = new System.Drawing.Size(81, 13);
             this.lblPhone_Number.TabIndex = 3;
@@ -593,7 +593,7 @@
             // 
             // txtPhone_Number
             // 
-            this.txtPhone_Number.Location = new System.Drawing.Point(81, 154);
+            this.txtPhone_Number.Location = new System.Drawing.Point(86, 182);
             this.txtPhone_Number.Name = "txtPhone_Number";
             this.txtPhone_Number.Size = new System.Drawing.Size(100, 20);
             this.txtPhone_Number.TabIndex = 12;
@@ -602,41 +602,27 @@
             // 
             this.lblDOB.AutoSize = true;
             this.lblDOB.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.lblDOB.Location = new System.Drawing.Point(3, 132);
+            this.lblDOB.Location = new System.Drawing.Point(8, 160);
             this.lblDOB.Name = "lblDOB";
             this.lblDOB.Size = new System.Drawing.Size(30, 13);
             this.lblDOB.TabIndex = 3;
             this.lblDOB.Text = "DOB";
             // 
-            // txtDOB
-            // 
-            this.txtDOB.Location = new System.Drawing.Point(81, 129);
-            this.txtDOB.Name = "txtDOB";
-            this.txtDOB.Size = new System.Drawing.Size(100, 20);
-            this.txtDOB.TabIndex = 12;
-            // 
             // lblGender
             // 
             this.lblGender.AutoSize = true;
             this.lblGender.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.lblGender.Location = new System.Drawing.Point(6, 179);
+            this.lblGender.Location = new System.Drawing.Point(201, 35);
             this.lblGender.Name = "lblGender";
             this.lblGender.Size = new System.Drawing.Size(42, 13);
             this.lblGender.TabIndex = 3;
             this.lblGender.Text = "Gender";
             // 
-            // txtGender
-            // 
-            this.txtGender.Location = new System.Drawing.Point(81, 179);
-            this.txtGender.Name = "txtGender";
-            this.txtGender.Size = new System.Drawing.Size(100, 20);
-            this.txtGender.TabIndex = 12;
-            // 
             // lblOccupation
             // 
             this.lblOccupation.AutoSize = true;
             this.lblOccupation.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.lblOccupation.Location = new System.Drawing.Point(192, 59);
+            this.lblOccupation.Location = new System.Drawing.Point(201, 87);
             this.lblOccupation.Name = "lblOccupation";
             this.lblOccupation.Size = new System.Drawing.Size(62, 13);
             this.lblOccupation.TabIndex = 3;
@@ -644,7 +630,7 @@
             // 
             // txtOccupation
             // 
-            this.txtOccupation.Location = new System.Drawing.Point(298, 59);
+            this.txtOccupation.Location = new System.Drawing.Point(298, 87);
             this.txtOccupation.Name = "txtOccupation";
             this.txtOccupation.Size = new System.Drawing.Size(100, 20);
             this.txtOccupation.TabIndex = 12;
@@ -666,36 +652,38 @@
             this.panel1.Controls.Add(this.butCentral_Index);
             this.panel1.Controls.Add(this.butCareDocument);
             this.panel1.Controls.Add(this.butCaseLoadManage);
-            this.panel1.Location = new System.Drawing.Point(12, 202);
+            this.panel1.Location = new System.Drawing.Point(0, 205);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1056, 289);
+            this.panel1.Size = new System.Drawing.Size(1068, 348);
             this.panel1.TabIndex = 59;
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(856, 35);
+            this.button2.BackColor = System.Drawing.Color.Cyan;
+            this.button2.Location = new System.Drawing.Point(856, 50);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(175, 33);
+            this.button2.Size = new System.Drawing.Size(200, 33);
             this.button2.TabIndex = 58;
             this.button2.Text = "Link To Video";
-            this.button2.UseVisualStyleBackColor = true;
+            this.button2.UseVisualStyleBackColor = false;
             this.button2.Click += new System.EventHandler(this.button2_Click_1);
             // 
             // button4
             // 
+            this.button4.BackColor = System.Drawing.Color.Cyan;
             this.button4.Location = new System.Drawing.Point(856, 6);
             this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(205, 23);
+            this.button4.Size = new System.Drawing.Size(205, 37);
             this.button4.TabIndex = 57;
-            this.button4.Text = "Click Here to Watch Full Video Below:";
-            this.button4.UseVisualStyleBackColor = true;
+            this.button4.Text = "Click Here to Watch Full Training";
+            this.button4.UseVisualStyleBackColor = false;
             this.button4.Click += new System.EventHandler(this.button4_Click);
             // 
             // lblReference_Number
             // 
             this.lblReference_Number.AutoSize = true;
             this.lblReference_Number.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.lblReference_Number.Location = new System.Drawing.Point(192, 85);
+            this.lblReference_Number.Location = new System.Drawing.Point(192, 113);
             this.lblReference_Number.Name = "lblReference_Number";
             this.lblReference_Number.Size = new System.Drawing.Size(100, 13);
             this.lblReference_Number.TabIndex = 3;
@@ -703,7 +691,7 @@
             // 
             // txtReference_Number
             // 
-            this.txtReference_Number.Location = new System.Drawing.Point(298, 85);
+            this.txtReference_Number.Location = new System.Drawing.Point(298, 113);
             this.txtReference_Number.Name = "txtReference_Number";
             this.txtReference_Number.Size = new System.Drawing.Size(100, 20);
             this.txtReference_Number.TabIndex = 12;
@@ -712,7 +700,7 @@
             // 
             this.lblTitle.AutoSize = true;
             this.lblTitle.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.lblTitle.Location = new System.Drawing.Point(2, 33);
+            this.lblTitle.Location = new System.Drawing.Point(7, 61);
             this.lblTitle.Name = "lblTitle";
             this.lblTitle.Size = new System.Drawing.Size(27, 13);
             this.lblTitle.TabIndex = 9;
@@ -720,46 +708,49 @@
             // 
             // txtTitle
             // 
-            this.txtTitle.Location = new System.Drawing.Point(81, 36);
+            this.txtTitle.Location = new System.Drawing.Point(86, 64);
             this.txtTitle.Name = "txtTitle";
             this.txtTitle.Size = new System.Drawing.Size(100, 20);
             this.txtTitle.TabIndex = 10;
             // 
             // btnInsert
             // 
-            this.btnInsert.Location = new System.Drawing.Point(323, 154);
+            this.btnInsert.BackColor = System.Drawing.Color.Cyan;
+            this.btnInsert.Location = new System.Drawing.Point(248, 179);
             this.btnInsert.Name = "btnInsert";
-            this.btnInsert.Size = new System.Drawing.Size(75, 27);
+            this.btnInsert.Size = new System.Drawing.Size(69, 27);
             this.btnInsert.TabIndex = 60;
             this.btnInsert.Text = "Insert";
-            this.btnInsert.UseVisualStyleBackColor = true;
+            this.btnInsert.UseVisualStyleBackColor = false;
             this.btnInsert.Click += new System.EventHandler(this.btnInsert_Click);
             // 
             // btnUpdate
             // 
-            this.btnUpdate.Location = new System.Drawing.Point(248, 155);
+            this.btnUpdate.BackColor = System.Drawing.Color.Cyan;
+            this.btnUpdate.Location = new System.Drawing.Point(258, 152);
             this.btnUpdate.Name = "btnUpdate";
             this.btnUpdate.Size = new System.Drawing.Size(69, 23);
             this.btnUpdate.TabIndex = 61;
             this.btnUpdate.Text = "Update";
-            this.btnUpdate.UseVisualStyleBackColor = true;
+            this.btnUpdate.UseVisualStyleBackColor = false;
             this.btnUpdate.Click += new System.EventHandler(this.btnUpdate_Click);
             // 
             // btnDelete
             // 
-            this.btnDelete.Location = new System.Drawing.Point(323, 122);
+            this.btnDelete.BackColor = System.Drawing.Color.Cyan;
+            this.btnDelete.Location = new System.Drawing.Point(333, 180);
             this.btnDelete.Name = "btnDelete";
             this.btnDelete.Size = new System.Drawing.Size(75, 23);
             this.btnDelete.TabIndex = 62;
             this.btnDelete.Text = "Delete";
-            this.btnDelete.UseVisualStyleBackColor = true;
+            this.btnDelete.UseVisualStyleBackColor = false;
             this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
             // 
             // lblClientType
             // 
             this.lblClientType.AutoSize = true;
             this.lblClientType.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblClientType.Location = new System.Drawing.Point(192, 36);
+            this.lblClientType.Location = new System.Drawing.Point(8, 33);
             this.lblClientType.Name = "lblClientType";
             this.lblClientType.Size = new System.Drawing.Size(76, 16);
             this.lblClientType.TabIndex = 64;
@@ -771,16 +762,64 @@
             this.cboType.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.cboType.FormattingEnabled = true;
             this.cboType.Items.AddRange(new object[] {
+            "Doctor",
             "Manager",
             "Physiotheraphy",
             "Nurse",
             "Career",
             "Others"});
-            this.cboType.Location = new System.Drawing.Point(298, 33);
+            this.cboType.Location = new System.Drawing.Point(86, 32);
             this.cboType.Margin = new System.Windows.Forms.Padding(2);
             this.cboType.Name = "cboType";
             this.cboType.Size = new System.Drawing.Size(100, 21);
             this.cboType.TabIndex = 65;
+            // 
+            // dateTimePicker1
+            // 
+            this.dateTimePicker1.Location = new System.Drawing.Point(86, 161);
+            this.dateTimePicker1.Name = "dateTimePicker1";
+            this.dateTimePicker1.Size = new System.Drawing.Size(100, 20);
+            this.dateTimePicker1.TabIndex = 66;
+            // 
+            // btnClear
+            // 
+            this.btnClear.BackColor = System.Drawing.Color.Cyan;
+            this.btnClear.Location = new System.Drawing.Point(333, 151);
+            this.btnClear.Name = "btnClear";
+            this.btnClear.Size = new System.Drawing.Size(75, 23);
+            this.btnClear.TabIndex = 67;
+            this.btnClear.Text = "Clear";
+            this.btnClear.UseVisualStyleBackColor = false;
+            this.btnClear.Click += new System.EventHandler(this.btnClear_Click);
+            // 
+            // lblEmail
+            // 
+            this.lblEmail.AutoSize = true;
+            this.lblEmail.Location = new System.Drawing.Point(201, 64);
+            this.lblEmail.Name = "lblEmail";
+            this.lblEmail.Size = new System.Drawing.Size(32, 13);
+            this.lblEmail.TabIndex = 68;
+            this.lblEmail.Text = "Email";
+            this.lblEmail.Click += new System.EventHandler(this.lblEmail_Click);
+            // 
+            // txtEmail
+            // 
+            this.txtEmail.Location = new System.Drawing.Point(298, 58);
+            this.txtEmail.Name = "txtEmail";
+            this.txtEmail.Size = new System.Drawing.Size(100, 20);
+            this.txtEmail.TabIndex = 69;
+            // 
+            // comboBox1
+            // 
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Items.AddRange(new object[] {
+            "-----------",
+            "Male",
+            "Female"});
+            this.comboBox1.Location = new System.Drawing.Point(298, 27);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(100, 21);
+            this.comboBox1.TabIndex = 70;
             // 
             // Dashboard
             // 
@@ -788,6 +827,11 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.ClientSize = new System.Drawing.Size(1068, 538);
+            this.Controls.Add(this.comboBox1);
+            this.Controls.Add(this.txtEmail);
+            this.Controls.Add(this.lblEmail);
+            this.Controls.Add(this.btnClear);
+            this.Controls.Add(this.dateTimePicker1);
             this.Controls.Add(this.cboType);
             this.Controls.Add(this.lblClientType);
             this.Controls.Add(this.btnDelete);
@@ -796,13 +840,10 @@
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.btnVideo);
             this.Controls.Add(this.btnVideo2);
-            this.Controls.Add(this.txtDOB);
             this.Controls.Add(this.txtReference_Number);
             this.Controls.Add(this.txtOccupation);
-            this.Controls.Add(this.txtGender);
             this.Controls.Add(this.txtPhone_Number);
             this.Controls.Add(this.txtAddress);
-            this.Controls.Add(this.txtLastname);
             this.Controls.Add(this.txtTitle);
             this.Controls.Add(this.lblTitle);
             this.Controls.Add(this.Search);
@@ -813,10 +854,9 @@
             this.Controls.Add(this.lblDOB);
             this.Controls.Add(this.btnAdd);
             this.Controls.Add(this.lblPhone_Number);
-            this.Controls.Add(this.txtName);
+            this.Controls.Add(this.txtFullname);
             this.Controls.Add(this.lblAddress);
-            this.Controls.Add(this.lblLastname);
-            this.Controls.Add(this.lblFname);
+            this.Controls.Add(this.lblFullname);
             this.Controls.Add(this.dataGridView);
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
@@ -836,14 +876,12 @@
         #endregion
 
         private System.Windows.Forms.DataGridView dataGridView;
-        private System.Windows.Forms.Label lblFname;
-        private System.Windows.Forms.Label lblLastname;
+        private System.Windows.Forms.Label lblFullname;
         private System.Windows.Forms.Label lblAddress;
-        private System.Windows.Forms.TextBox txtName;
+        private System.Windows.Forms.TextBox txtFullname;
         private System.Windows.Forms.Button btnAdd;
         private System.Windows.Forms.TextBox txtSearch;
         private System.Windows.Forms.Button Search;
-        private System.Windows.Forms.TextBox txtLastname;
         private System.Windows.Forms.TextBox txtAddress;
         private System.Windows.Forms.Button btnVideo;
         private System.Windows.Forms.Button butReffered;
@@ -890,9 +928,7 @@
         private System.Windows.Forms.Label lblPhone_Number;
         private System.Windows.Forms.TextBox txtPhone_Number;
         private System.Windows.Forms.Label lblDOB;
-        private System.Windows.Forms.TextBox txtDOB;
         private System.Windows.Forms.Label lblGender;
-        private System.Windows.Forms.TextBox txtGender;
         private System.Windows.Forms.Label lblOccupation;
         private System.Windows.Forms.TextBox txtOccupation;
         private System.Windows.Forms.Panel panel1;
@@ -907,6 +943,11 @@
         private System.Windows.Forms.Button btnDelete;
         private System.Windows.Forms.Label lblClientType;
         private System.Windows.Forms.ComboBox cboType;
+        private System.Windows.Forms.DateTimePicker dateTimePicker1;
+        private System.Windows.Forms.Button btnClear;
+        private System.Windows.Forms.Label lblEmail;
+        private System.Windows.Forms.TextBox txtEmail;
+        private System.Windows.Forms.ComboBox comboBox1;
     }
 }
 

@@ -36,12 +36,13 @@
             // 
             // btnHelp
             // 
+            this.btnHelp.BackColor = System.Drawing.Color.Cyan;
             this.btnHelp.Location = new System.Drawing.Point(631, 208);
             this.btnHelp.Name = "btnHelp";
             this.btnHelp.Size = new System.Drawing.Size(75, 23);
             this.btnHelp.TabIndex = 6;
             this.btnHelp.Text = "Help";
-            this.btnHelp.UseVisualStyleBackColor = true;
+            this.btnHelp.UseVisualStyleBackColor = false;
             this.btnHelp.Click += new System.EventHandler(this.btnHelp_Click);
             // 
             // textBox1
@@ -55,12 +56,13 @@
             // 
             // btnDashboard
             // 
+            this.btnDashboard.BackColor = System.Drawing.Color.Cyan;
             this.btnDashboard.Location = new System.Drawing.Point(611, 140);
             this.btnDashboard.Name = "btnDashboard";
             this.btnDashboard.Size = new System.Drawing.Size(121, 33);
             this.btnDashboard.TabIndex = 15;
             this.btnDashboard.Text = "To Dashboard";
-            this.btnDashboard.UseVisualStyleBackColor = true;
+            this.btnDashboard.UseVisualStyleBackColor = false;
             this.btnDashboard.Click += new System.EventHandler(this.btnDashboard_Click);
             // 
             // Login_Information
@@ -74,6 +76,7 @@
             this.Name = "Login_Information";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Login_Information";
+            this.Load += new System.EventHandler(this.Login_Information_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

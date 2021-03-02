@@ -45,16 +45,9 @@ namespace WindowsFormsApplication1
             sConnStr = "Server = " + Server + "; " + "database = " + DB + "; " + "uid = " + UName + ";";
             myConn = new MySqlConnection(sConnStr);
 
-            DisplayTable("Select * fROM self_mobility_screen");
-
-            //dt.Columns.Add("Reference_No", typeof(int));
-            //dt.Columns.Add("Name", typeof(string));
-            //dt.Columns.Add("Assessment_Date", typeof(string));
-            //dt.Columns.Add("Deep_Squat_Alignment", typeof(string));
-            //dt.Columns.Add("Hurdle_Step_Alignment", typeof(string));
-            //dt.Columns.Add("Inline_Step_Alignment", typeof(string));
-            //dt.Columns.Add("Active_straight_Leg_Raise_Flexed", typeof(string));
-            //dt.Columns.Add("Seated_Rotation_45Degree", typeof(string));
+            //DisplayTable("Select * fROM bio_self_mobility_screen");
+            DisplayTable("SELECT a.*, u.Fullname FROM bio_self_mobility_screen a, bio_user u WHERE a.user_id = u.user_ID");
+            populateName();
         }
         private void DisplayTable(string sQuery)
         {
@@ -82,106 +75,128 @@ namespace WindowsFormsApplication1
             //dataGridView1.DataSource = DT;
         }
 
+        private void populateName()
+        {
+            try
+            {
+                String query = "select Fullname from bio_user";
+                MySqlDataAdapter myAdap = new MySqlDataAdapter(query, sConnStr);
+                DataTable userdata = new DataTable();
+                myAdap.Fill(userdata);
+                foreach (DataRow dr in userdata.Rows)
+                {
+                    comboBox6.Items.Add(dr[0]);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
         private void btnAdd_Click(object sender, EventArgs e)
         {
-
-
-            MySqlDataAdapter dAdapter = new MySqlDataAdapter("SELECT * from self_mobility_screen", myConn);
-
-
-            DataTable dTable = new DataTable();
-            dAdapter.Fill(dTable);
-
-            DataRow dr = dTable.NewRow();
-            //dr["ID"] = txtID.Text;
-            dr["Name"] = txtName.Text;
-            dr["Lastname"] = txtLastname.Text;
-            dr["Reference_No"] = txtRefenNo.Text;
-            dr["Assessment_Date"] = txtAssmentDate.Text;
-            dr["Deep_Squat_Alignment"] = comboBox1.Text;
-            dr["Hurdle_Step_Alignment"] = comboBox2.Text;
-            dr["Inline_Step_Alignment"] = comboBox3.Text;
-            dr["Active_straight_Leg_Raise_Flexed"] = comboBox4.Text;
-            dr["Seated_Rotation_45Degree"] = comboBox5.Text;
-
-
-            dTable.Rows.Add(dr);
-
-            // create a command builder
-            MySqlCommandBuilder commandBuilder = new MySqlCommandBuilder(dAdapter);
-
-
-            //update the data with mnodification table
-            int iRowsAffeected = dAdapter.Update(dTable);
-            dAdapter.Dispose();
-
-            if (iRowsAffeected > 0)
+            try
             {
-                // update the datagrid
-                // display if new row is added
-                string sQuery = "SELECT * FROM self_mobility_screen";
-                DisplayTable(sQuery);
 
 
-                MessageBox.Show(iRowsAffeected + "Rows modified", "Data Update", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MySqlDataAdapter dAdapter = new MySqlDataAdapter("SELECT * from bio_self_mobility_screen", myConn);
+
+
+                DataTable dTable = new DataTable();
+                dAdapter.Fill(dTable);
+
+                DataRow dr = dTable.NewRow();
+                //dr["ID"] = txtID.Text;
+                dr["Name"] = comboBox6.Text;
+                dr["Reference_No"] = txtRefenNo.Text;
+                dr["Assessment_Date"] = txtAssmentDate.Text;
+                dr["Deep_Squat_Alignment"] = comboBox1.Text;
+                dr["Hurdle_Step_Alignment"] = comboBox2.Text;
+                dr["Inline_Step_Alignment"] = comboBox3.Text;
+                dr["Active_straight_Leg_Raise_Flexed"] = comboBox4.Text;
+                dr["Seated_Rotation_45Degree"] = comboBox5.Text;
+
+
+                dTable.Rows.Add(dr);
+
+                // create a command builder
+                MySqlCommandBuilder commandBuilder = new MySqlCommandBuilder(dAdapter);
+
+
+                //update the data with mnodification table
+                int iRowsAffeected = dAdapter.Update(dTable);
+                dAdapter.Dispose();
+
+                if (iRowsAffeected > 0)
+                {
+                    // update the datagrid
+                    // display if new row is added
+                    string sQuery = "SELECT * FROM bio_self_mobility_screen";
+                    DisplayTable(sQuery);
+
+
+                    MessageBox.Show(iRowsAffeected + "Rows modified", "Data Update", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                else
+                {
+                    MessageBox.Show("No rows modified", "Data Update", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+
+                this.Show();
             }
-            else
+            catch (Exception ex)
             {
-                MessageBox.Show("No rows modified", "Data Update", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show(ex.Message);
             }
 
-            this.Show();
-
-            //try
-            //{
-            //    dt.Rows.Add(txtRefenNo.Text, txtName.Text, txtAssmentDate.Text, comboBox1.Text, comboBox2.Text, comboBox3.Text, comboBox4.Text, comboBox5.Text);
-            //}
-            //catch (Exception ex)
-            //{
-            //    MessageBox.Show(ex.Message);
-            //}
         }
 
         private void btnDelete_Click(object sender, EventArgs e)
         {
-        //    try
-        //    {
-        //        dt.Rows.RemoveAt(dataGridViewSelf.CurrentCell.RowIndex);
-        //        dataGridViewSelf.DataSource = dt;
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        MessageBox.Show(ex.Message);
-        //    }
+            try
+            {
+                myDT.Rows.RemoveAt(dataGridViewSelf.CurrentCell.RowIndex);
+                dataGridViewSelf.DataSource = myDT;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
 
         private void dataGridViewSelf_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            i = e.RowIndex;
-            DataGridViewRow row = dataGridViewSelf.Rows[i];
-            txtName.Text = row.Cells[0].Value.ToString();
-            txtLastname.Text = row.Cells[0].Value.ToString();
-            txtRefenNo.Text = row.Cells[1].Value.ToString();
-            txtAssmentDate.Text = row.Cells[2].Value.ToString();
-            comboBox1.Text = row.Cells[3].Value.ToString();
-            comboBox2.Text = row.Cells[4].Value.ToString();
-            comboBox3.Text = row.Cells[5].Value.ToString();
-            comboBox4.Text = row.Cells[6].Value.ToString();
-            comboBox5.Text = row.Cells[7].Value.ToString();
+            try
+            {
+                i = e.RowIndex;
+                DataGridViewRow row = dataGridViewSelf.Rows[i];
+                comboBox6.Text = row.Cells[0].Value.ToString();
+                txtRefenNo.Text = row.Cells[1].Value.ToString();
+                txtAssmentDate.Text = row.Cells[2].Value.ToString();
+                comboBox1.Text = row.Cells[3].Value.ToString();
+                comboBox2.Text = row.Cells[4].Value.ToString();
+                comboBox3.Text = row.Cells[5].Value.ToString();
+                comboBox4.Text = row.Cells[6].Value.ToString();
+                comboBox5.Text = row.Cells[7].Value.ToString();
+            }
+            catch (Exception ex)
+            {
+                //MessageBox.Show(ex.Message);
+            }
         }
 
         private void btnUpdate_Click(object sender, EventArgs e)
         {
             DataGridViewRow row = dataGridViewSelf.Rows[i];
             row.Cells[0].Value = txtRefenNo.Text;
-            row.Cells[1].Value = txtName.Text;
-            row.Cells[2].Value = txtLastname.Text;
-            row.Cells[3].Value = txtAssmentDate.Text;
-            row.Cells[4].Value = comboBox1.Text;
-            row.Cells[5].Value = comboBox2.Text;
-            row.Cells[6].Value = comboBox3.Text;
-            row.Cells[7].Value = comboBox4.Text;
-            row.Cells[8].Value = comboBox5.Text;
+            row.Cells[1].Value = comboBox6.Text;
+            row.Cells[2].Value = txtAssmentDate.Text;
+            row.Cells[3].Value = comboBox1.Text;
+            row.Cells[4].Value = comboBox2.Text;
+            row.Cells[5].Value = comboBox3.Text;
+            row.Cells[6].Value = comboBox4.Text;
+            row.Cells[7].Value = comboBox5.Text;
         }
         //private DataTable myDT;
         DataTable myDT = new DataTable();
@@ -194,18 +209,24 @@ namespace WindowsFormsApplication1
 
         private void dataGridViewSelf_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            i = e.RowIndex;
-            DataGridViewRow row = dataGridViewSelf.Rows[i];
-            //txtID.Text = row.Cells[0].Value.ToString();
-            txtRefenNo.Text = row.Cells[1].Value.ToString();
-            txtName.Text = row.Cells[2].Value.ToString();
-            txtLastname.Text = row.Cells[3].Value.ToString();
-            txtAssmentDate.Text = row.Cells[4].Value.ToString();
-            comboBox1.Text = row.Cells[5].Value.ToString();
-            comboBox2.Text = row.Cells[6].Value.ToString();
-            comboBox3.Text = row.Cells[7].Value.ToString();
-            comboBox4.Text = row.Cells[8].Value.ToString();
-            comboBox5.Text = row.Cells[9].Value.ToString();
+            try
+            {
+                i = e.RowIndex;
+                DataGridViewRow row = dataGridViewSelf.Rows[i];
+                //txtID.Text = row.Cells[0].Value.ToString();
+                txtRefenNo.Text = row.Cells[0].Value.ToString();
+                comboBox6.Text = row.Cells[1].Value.ToString();
+                txtAssmentDate.Text = row.Cells[2].Value.ToString();
+                comboBox1.Text = row.Cells[3].Value.ToString();
+                comboBox2.Text = row.Cells[4].Value.ToString();
+                comboBox3.Text = row.Cells[5].Value.ToString();
+                comboBox4.Text = row.Cells[6].Value.ToString();
+                comboBox5.Text = row.Cells[7].Value.ToString();
+            }
+            catch (Exception ex)
+            {
+                //MessageBox.Show(ex.Message);
+            }
         }
 
         private void button7_Click(object sender, EventArgs e)

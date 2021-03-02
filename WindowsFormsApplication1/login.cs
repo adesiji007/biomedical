@@ -12,6 +12,13 @@ namespace WindowsFormsApplication1
 {
     public partial class login : Form
     {
+        private string Server;
+        private string DB;
+        private string UName;
+        //private string Pass;
+        public DataTable myDT;
+        int i;
+        //private MySqlDataAdapter myAdap;
         public login()
         {
             InitializeComponent();
@@ -32,23 +39,32 @@ namespace WindowsFormsApplication1
             //myForm.ShowDialog();
         }
 
-        private void button3_Click(object sender, EventArgs e)
-        {
-            //this.Hide();
-            //NewUser newu = new NewUser();
-            //newu.Show();
-        }
-
-        private void button4_Click(object sender, EventArgs e)
-        {
-            //this.Hide();
-            //Forget_Password newu = new Forget_Password(Server, DB, UName);
-            //newu.Show();
-        }
+            
 
         private void checkBox1_CheckedChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void butForget_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            Forget_Password newu = new Forget_Password(Server, DB, UName);
+            newu.Show();
+        }
+
+        private void butNewuser_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            NewUser newu = new NewUser(Server, DB, UName);
+            newu.Show();
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            Reset_Password resp = new Reset_Password(Server, DB, UName);
+            resp.Show();
         }
     }
 }
